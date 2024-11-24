@@ -1,0 +1,50 @@
+<div class="container mt-6">
+  <h2 class="text-center mb-4">Users List</h2>
+
+
+  <div class="text-center mb-4">
+    <label for="usersSearch" class="form-label fw-bold">Search users by name or email: </label>
+    <input id="usersSearch" type="text" placeholder="Enter your search" (input)="searchUsers($event)" class="form-control d-inline-block w-50" />
+  </div>
+
+
+  <!-- Make the table responsive -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Image</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Address</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let user of usersarray; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>
+            <img src="https://localhost:7001/api/Images/getImages/{{user.image}}" alt="{{user.fullName}} image" class="img-fluid">
+          </td>
+          <td>{{user.fullName}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.address}}</td>
+          <td>
+            <a routerLink="/dashboard/userdetails/{{user.userId}}" class="btn btn-outline-primary">Details</a>
+          </td>
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Info message for no products available -->
+  <div class="alert alert-info" *ngIf="usersarray == null">
+    No user registrated at the moment.
+  </div>
+</div>

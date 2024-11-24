@@ -1,0 +1,23 @@
+.message-container {
+  max-width: 250px; /* Set the maximum width for the message column */
+  overflow-wrap: break-word; /* Allow long words to break onto the next line */
+  word-wrap: break-word; /* Legacy support for older browsers */
+  overflow: hidden; /* Optional: if you want to hide overflow, but this can be removed */
+}
+
+td {
+  white-space: normal; /* Allow wrapping in the table cell */
+  padding: 8px; /* Add some padding for better spacing */
+}
+
+
+.admin-reply-container {
+  max-width: 250px; /* Set the maximum width for the admin reply column */
+  overflow-wrap: break-word; /* Allow long words to break onto the next line */
+  word-wrap: break-word; /* Legacy support for older browsers */
+  overflow: hidden; /* Optional: if you want to hide overflow */
+}
+
+
+
+

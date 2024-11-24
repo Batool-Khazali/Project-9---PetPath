@@ -1,0 +1,72 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">{{messageDetails.senderName}}'s Message Details</h2>
+
+  <div class="user-info-card p-xxl-15 p-lg-10 p-md-8 p-6">
+
+    <!-- Contact Details -->
+    <div class="user-details">
+      <div>
+        <label class="detail-label">Name:</label>
+        <p>{{messageDetails.senderName}}</p>
+      </div>
+
+      <div>
+        <label class="detail-label">Email:</label>
+        <p>{{messageDetails.senderEmail}}</p>
+      </div>
+
+      <div>
+        <label class="detail-label">Date:</label>
+        <p>{{messageDetails.sentAt | date}}</p>
+      </div>
+
+      <div>
+        <label class="detail-label">Subject:</label>
+        <p>{{messageDetails.subject}}</p>
+      </div>
+
+      <div>
+        <label class="detail-label">Message:</label>
+        <p style="white-space: pre-line;">{{messageDetails.message}}</p>
+      </div>
+
+      <div>
+        <label class="detail-label">Admin Reply:</label>
+        <p style="white-space: pre-line;">
+          {{messageDetails.adminReply}}
+          <span style="visibility:hidden">........</span>
+          <button class="btn btn-outline-info" *ngIf="messageDetails.adminReply == 'no reply'" (click)="toggleContent()">Reply</button>
+        </p>
+      </div>
+
+
+      <div *ngIf="isContentVisible" style="margin-top: 10px;">
+        <h4>Reply</h4>
+        <p>Please note that the message will be sent from your email</p>
+        <br />
+
+        <form #replyForm="ngForm" (ngSubmit)="reply(replyForm.value)">
+
+          <div class="d-grid gap-2">
+            <label class="text-n20 fw-normal font-instrument">Message</label>
+            <textarea placeholder="Message" ngModel name="Message"
+                      class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-8 focus-primary w-100"
+                      rows="3" required></textarea>
+          </div>
+
+          <br />
+
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+
+        </form>
+
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+

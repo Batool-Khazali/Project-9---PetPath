@@ -1,0 +1,29 @@
+.shelters-section {
+  background-color: #f8f9fa; /* Light background for contrast */
+}
+
+.card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+  .card:hover {
+    transform: translateY(-5px); /* Slightly raise the card on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
+  }
+
+.card-title {
+  font-family: 'Roboto', sans-serif; /* Use a modern font */
+  font-size: 1.5rem; /* Larger font size */
+}
+
+.card-text {
+  font-size: 0.95rem; /* Slightly smaller font size for the description */
+}
+
+.text-primary {
+  color: #007bff; /* Bootstrap primary color */
+}
+
+.text-muted {
+  color: #6c757d; /* Bootstrap secondary color */
+}

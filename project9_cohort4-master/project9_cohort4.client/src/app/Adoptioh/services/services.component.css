@@ -1,0 +1,13 @@
+.service-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+.service-icon {
+  font-size: 40px; /* Adjust icon size */
+  color: #007bff; /* Primary color for the icon */
+}

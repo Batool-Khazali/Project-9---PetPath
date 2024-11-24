@@ -1,0 +1,76 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Adoption Requests List</h2>
+
+
+  <!-- Make the table responsive -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Animal Image</th>
+          <th scope="col">Animal Name</th>
+          <th scope="col">Requester Name</th>
+          <th scope="col">Date Of Application</th>
+          <th scope="col">Requester Medical Status</th>
+          <th scope="col">Requester Financial Status</th>
+          <th scope="col">Requester Flat Status</th>
+          <th scope="col">Requester Living Status</th>
+          <th scope="col">Requester Details</th>
+          <th scope="col">Adoption Status</th>
+          <th scope="col">Is Recived</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let message of allRequests; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td><img src="https://localhost:7001/api/Animals1/getImages/{{message.animalImage}}" alt="{{message.animalName}}'s image'" /></td>
+          <td>{{message.animalName}}</td>
+          <td>{{message.userName}}</td>
+          <td>{{message.applicationDate | date}}</td>
+          <td>{{message.userMedicalStatus}}</td>
+          <td>{{message.userFinaincalStatus}}</td>
+          <td>{{message.userFlatType}}</td>
+          <td>{{message.userLivingStatus}}</td>
+
+          <td>
+            <div class="message-container">
+              <span *ngIf="!message.expanded">{{ truncateMessage(message.userMoreDetails, 30) }}</span>
+              <span *ngIf="message.expanded">{{ message.userMoreDetails }}</span>
+              <span *ngIf="message.userMoreDetails.length > 30 && !message.expanded">
+                ... <a (click)="toggleMessage(message)" class="text-primary">Read More</a>
+              </span>
+              <span *ngIf="message.userMoreDetails.length > 30 && message.expanded">
+                ... <a (click)="toggleMessage(message)" class="text-primary">Show Less</a>
+              </span>
+            </div>
+          </td>
+
+          <td>{{message.status}}</td>
+          <td>
+            <p *ngIf="message.status == 'Pending'">Not Adopted Yet</p>
+            <p *ngIf="message.status == 'Approved' && message.isReceived == false">Being Finalized</p>
+            <p *ngIf="message.status == 'Approved' && message.isReceived == true">In a Loving Home</p>
+            <p *ngIf="message.status == 'Rejected'">Request Rejected</p>
+          </td>
+
+          <td>
+            <a *ngIf="message.status == 'Pending'" (click)="acceptAdoption(message.animalId , message.applicationId)" class="btn btn-outline-primary">Accept</a>
+            <p *ngIf="message.status == 'Approved' && message.isReceived == false">Being Finalized</p>
+            <p *ngIf="message.status == 'Approved' && message.isReceived == true">Adopted</p>
+            <p *ngIf="message.status == 'Rejected'">Request Rejected</p>
+          </td>
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Info message for no products available -->
+  <div class="alert alert-info" *ngIf="allRequests == null">
+    No adoption request is recived at the moment.
+  </div>
+</div>

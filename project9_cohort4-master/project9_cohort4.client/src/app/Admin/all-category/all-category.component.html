@@ -1,0 +1,48 @@
+<main>
+
+
+
+  <!-- Bootstrap container to center and structure content -->
+  <div class="container mt-4">
+
+    <!-- Optional heading for the section -->
+    <h2 class="text-center mb-4">All Category</h2>
+
+    <!-- Styled Bootstrap table -->
+    <div class="table-responsive mx-auto" style="max-width: 900px;">
+      <table class="table table-light table-hover table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Category Name</th>
+            <th scope="col">Category Description</th>
+            <th scope="col">Category image</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Angular *ngFor directive to iterate over the array -->
+          <tr *ngFor="let item of Array; let i = index">
+            <!-- Display row number dynamically using index -->
+            <td scope="row">{{ item.categoryId }}</td>
+            <td>{{ item.name }}</td>
+            <td scope="row">{{ item.description }}</td>
+
+            <img class="img-fluid" src="https://localhost:7001/api/Categories/getImages/{{item.image}}" alt="" style="max-width: 100px; max-height: 100px;">
+
+
+
+
+
+
+            <td>
+              <button type="button" class="btn btn-outline-primary" [routerLink]="['/dashboard/UpdateCategory', item.categoryId]">Edit</button>  <!-- Bind the edit button to the editAnimal method -->
+              &nbsp;
+              <button type="button" class="btn btn-outline-danger" (click)="deleteCategory(item.categoryId)">Delete</button><!--   Bind the delete button to the deleteAnimal method-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

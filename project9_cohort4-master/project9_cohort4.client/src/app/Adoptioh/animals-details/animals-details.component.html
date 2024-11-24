@@ -1,0 +1,192 @@
+<!-- main start -->
+<main>
+
+    <!-- inner hero section start -->
+    <section class="inner-hero-section pt-xxl-0 pt-md-15 pt-20 pt-120 bg-primary2">
+        <div class="container position-relative">
+            <div class="row g-6 justify-content-between align-items-center">
+                <div class="col-sm-6">
+                    <span class="mb-3 text-h1 text-n20">Pet Details</span>
+                    <ul class="breadcrumb d-inline-flex align-items-center justify-content-center gap-lg-2 gap-1">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Pet Details</a></li>
+                    </ul>
+                </div>
+                <div class="col-xl-5 col-sm-6 me-auto d-none d-sm-block">
+                    <div class="reveal-bottom inner-hero-banner">
+                        <img class="w-100" src="assets/images/inner-hero-banner.png" alt="inner hero banner">
+                    </div>
+                </div>
+            </div>
+            <div class="pows position-absolute top-60 right-n10 translate-middle-y z-n1 d-none d-sm-block">
+                <img class="w-100" src="assets/images/pows.png" alt="pow">
+            </div>
+        </div>
+    </section>
+    <!-- inner hero section end -->
+    <!-- shop details section start -->
+    <section class="shop-details-section pt-120">
+        <div class="container">
+          <div class="row g-6 justify-content-between mb-lg-15 mb-md-10 mb-8">
+            <div class="col-lg-6">
+              <div class="product-images mb-6">
+
+
+                <div class="image-container" *ngIf="animal.image1" [class.active]="activeImage === 'image1'">
+                  <img class="radius-16" [src]="'https://localhost:7001/api/Animals1/getImages/' + animal.image1" alt="{{ animal.name }}" style="width: 300px; height: 300px;">
+                </div>
+                <div class="image-container" *ngIf="animal.image2" [class.active]="activeImage === 'image2'">
+                  <img class="radius-16" [src]="'https://localhost:7001/api/Animals1/getImages/' + animal.image2" alt="{{ animal.name }}" style="width: 300px; height: 300px;">
+                </div>
+                <div class="image-container" *ngIf="animal.image3" [class.active]="activeImage === 'image3'">
+                  <img class="radius-16" [src]="'https://localhost:7001/api/Animals1/getImages/' + animal.image3" alt="{{ animal.name }}" style="width: 300px; height: 300px;">
+                </div>
+              </div>
+
+              <div class="thumbnail-images d-flex mt-3">
+
+
+                <div class="thumb-image radius-8" *ngIf="animal.image1" (click)="changeImage('image1')">
+                  <img class="radius-16" [src]="'https://localhost:7001/api/Animals1/getImages/' + animal.image1" alt="{{ animal.name }}" style="width: 150px; height: 150px;">
+                </div>
+                <div class="thumb-image radius-8" *ngIf="animal.image2" (click)="changeImage('image2')">
+                  <img class="radius-16" [src]="'https://localhost:7001/api/Animals1/getImages/' + animal.image2" alt="{{ animal.name }}" style="width: 150px; height: 150px;">
+                </div>
+                <div class="thumb-image radius-8" *ngIf="animal.image3" (click)="changeImage('image3')">
+                  <img class="radius-16" [src]="'https://localhost:7001/api/Animals1/getImages/' + animal.image3" alt="{{ animal.name }}" style="width: 150px; height: 150px;">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-5">
+              <div class="d-grid gap-lg-6 gap-4">
+                <div>
+                  <h1 class="text-animation-word text-h1 font-otomanopee text-n20 fw-normal mb-lg-4 mb-2">
+                    {{ animal.name }}
+                  </h1>
+                  <span class="text-primary text-xl fw-semibold font-instrument">
+                    Age: {{ animal.age }}
+                  </span>
+                </div>
+                <p class="text-n10 fw-normal">
+                  {{ animal.description }}
+                </p>
+              </div>
+
+              <div class="d-flex justify-content-center align-items-center gap-lg-3 gap-2 flex-wrap flex-xs-nowrap mt-lg-8 mt-6 mb-lg-10 mb-8">
+                <button class="btn-primary" (click)="rahaf(animal.animalId)">Adopt Now</button>
+                <button class="cart-btn icon-48px bg-n0 text-primary text-xl hover-text-secondary shadow-3">
+                  <i class="ph-fill ph-heart"></i>
+                </button>
+              </div>
+
+              <ul class="d-grid gap-lg-4 gap-2">
+                <li class="d-flex align-items-center gap-1">
+                  <span class="text-base fw-medium font-instrument text-n20">Shelter: </span>
+                  <span class="text-base fw-normal font-instrument text-n10">Happy Tails Shelter</span>
+                </li>
+                <li class="d-flex align-items-center gap-1">
+                  <span class="text-base fw-medium font-instrument text-n20">Species: </span>
+                  <span class="text-base fw-normal font-instrument text-n10">{{ animal.species }}</span>
+                </li>
+                <li class="d-flex align-items-center gap-1">
+                  <span class="text-base fw-medium font-instrument text-n20">Breed: </span>
+                  <span class="text-base fw-normal font-instrument text-n10">{{ animal.breed }}</span>
+                </li>
+                <li class="d-flex align-items-center gap-1">
+                  <span class="text-base fw-medium font-instrument text-n20">Animal ID:  </span>
+                  <span class="text-base fw-normal font-instrument text-n10">20{{ animal.id }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!--
+
+          <section class="shop-section pt-120">
+            <div class="container">
+              <h2 class="text-h3 text-n20 text-center mb-10">Related Animals</h2>
+
+              <ng-container *ngIf="relatedAnimals && relatedAnimals.length > 0">
+                <div class="row g-6 mb-lg-10 mb-md-8 mb-6">
+                  <div class="col-lg-3 col-md-4 col-xs-6" *ngFor="let animal of relatedAnimals">
+                    <div class="product-card border n20-1-border radius-16 overflow-hidden hover-primary-border">
+                      <div class="product-thumb scale-animation position-relative">
+                        <img class="w-100" [src]="animal.image1 || 'assets/images/default-image.png'" alt="{{ animal.name }}">
+                        <div class="product-btns d-grid gap-1 position-absolute top-0 right-0 mt-lg-6 mt-4 me-lg-6 me-4">
+                          <button class="wishlist-btn icon-40px bg-n0 text-primary text-xl hover-text-secondary">
+                            <i class="ph-fill ph-heart"></i>
+                          </button>
+                          <button class="cart-btn icon-40px bg-n0 text-primary text-xl hover-text-secondary">
+                            <i class="ph-fill ph-shopping-cart"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="product-info p-lg-6 p-4 text-center">
+                        <a [routerLink]="['/animals-details', animal.animalId]"
+                           class="text-h6 text-n20 font-otomanopee fw-normal hover-text-primary hover-underline mb-2">
+                          {{ animal.name }}
+                        </a>
+                        <span class="text-primary font-instrument fw-semibold">{{ animal.age }} years</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="relatedAnimals.length === 0">
+                <p>No related animals found.</p>
+              </ng-container>
+            </div>
+          </section>-->
+        <!--shop section start -->
+        <section class="shop-section pt-120 pb-120">
+            <div class="container">
+                <div class="row g-6 align-items-end justify-content-between mb-lg-15 mb-md-10 mb-8">
+                    <div class="col-lg-6">
+                      <h2 class="text-animation-word text-h1 font-otomanopee text-n20 fw-normal">
+                        Related Animals
+                      </h2>
+                    </div>
+                    <div class="col-auto">
+                      <a [routerLink]="['/animals']" class="btn-primary text-xl">
+                        More Animals
+                      </a>
+
+                    </div>
+                </div>
+                <!-- product list start -->
+                <ng-container *ngIf="relatedAnimals && relatedAnimals.length > 0">
+                    <!--product list start -->
+                    <div class="row g-6 mb-lg-10 mb-md-8 mb-6">
+                        <div class="col-md-4 col-xs-6" *ngFor="let animal of relatedAnimals">
+                            <div class="product-card border n20-1-border radius-16 overflow-hidden hover-primary-border">
+                                <div class="product-thumb scale-animation position-relative">
+                                    <img src="https://localhost:7001/api/Animals1/getImages/{{animal.image1}}" [alt]="animal.name" style="width: 200px; height: 200px; object-fit: cover; border-radius: 10px; overflow: hidden;">
+                                    <div class="product-info p-lg-6 p-4 text-center">
+                                        <a [routerLink]="['/animal-details', animal.animalId]" class="text-h6 text-n20 font-otomanopee fw-normal hover-text-primary hover-underline mb-2">
+                                            {{ animal.name }}
+                                        </a>
+                                        <p>{{ animal.breed }}</p>
+                                        <span class="text-primary font-instrument fw-semibold">{{ animal.age }} years old</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--product list end                </ng-container>
+                        </div>
+
+                    </section>
+                    <!--shop section end -->
+
+
+                </ng-container>
+            </div>
+        </section>
+        <!-- shop details section end -->
+    </section>
+</main>
+<!-- main end -->

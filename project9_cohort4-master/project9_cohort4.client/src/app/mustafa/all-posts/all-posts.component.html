@@ -1,0 +1,396 @@
+ <!-- blogs section start -->
+<section class="blog-section pt-120 pb-120">
+  <div class="container">
+    <div class="row g-6 align-items-end justify-content-center mb-lg-15 mb-md-10 mb-8">
+      <div class="col-lg-6">
+        <span class="d-block text-primary text-uppercase mb-lg-4 mb-3">Posts</span>
+        <h1 class="text-animation-word font-otomanopee text-n20 fw-normal">
+          All success store from our cleints
+        </h1>
+        <h4>If you have a success story please share it with us</h4>
+        <button class="btn w-25 mt-4" style="background-color: #FB7B53;color:white;" data-bs-toggle="modal" data-bs-target="#addPostModal">Add Post</button>
+      </div>
+    </div>
+    <div class="row gx-6 gy-8 justify-content-center justify-content-md-start mb-lg-10 mb-md-8 mb-6">
+      <div class="row gx-6 gy-8 justify-content-center justify-content-md-start mb-lg-10 mb-md-8 mb-6">
+        <div class="col-lg-4 col-md-6 col-xs-10" *ngFor="let post of dataArray">
+          <div class="blog-card">
+            <div class="blog-img scale-animation position-relative radius-20 overflow-hidden mb-lg-7 mb-lg-5 mb-3">
+              <img class="w-100" src="https://localhost:7001{{post.storyPhoto}}" alt="blog image">
+              <div class="position-absolute end-0 bottom-0 mb-lg-6 mb-4 me-lg-6 me-4">
+                <a routerLink="/postcomments/{{post.postId}}" class="btn-primary n0-border text-n0 font-instrument">{{post.storyTitle}}</a>
+              </div>
+            </div>
+            <div class="blog-content">
+              <div class="d-flex align-items-center gap-xl-3 gap-2 mb-lg-3 mb-2">
+                <div class="d-flex align-items-center gap-2">
+                  <span class="text-lg text-primary"><i class="ph ph-calendar-blank"></i></span>
+                  <span class="text-n20 fw-normal">{{post.storyDate | date: 'yyyy/MM/dd hh:mm a'}}</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <span class="text-lg text-primary"><i class="ph ph-user"></i></span>
+                  <span class="text-n20 fw-normal">{{post.user.fullName}}</span>
+                </div>
+              </div>
+
+              <p class="text-n10 fw-normal">
+                {{post.storyContent}}
+              </p>
+
+              <div class="d-flex justify-content-around align-items-center mt-3" style="border:1px solid gray;padding:2%;border-radius:10px">
+                <span class="like-icon" (click)="addLike(post.postId)" [ngClass]="{'bg-danger text-white': post.userHasLiked}">
+                  <i class="ph ph-heart"></i>
+                  <span class="">{{post.likesCount}}</span>
+                </span>
+
+                <span>
+                  <a routerLink="/postcomments/{{post.postId}}">
+
+                    <i class="ph ph-chat"></i>
+                  </a>
+                  <span class="">{{post.commentcount}}</span>
+                </span>
+
+                <span (click)="shareOnX(post)">
+                  <i class="ph ph-share"></i>
+                </span>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!--<div class="col-lg-4 col-md-6 col-xs-10">
+        <div class="blog-card">
+          <div class="blog-img scale-animation position-relative radius-20 overflow-hidden mb-lg-7 mb-lg-5 mb-3">
+            <img class="w-100" src="assets/images/blog-img-1.png" alt="blog image">
+            <div class="position-absolute end-0 bottom-0 mb-lg-6 mb-4 me-lg-6 me-4">
+              <a href="#" class="btn-primary n0-border text-n0 font-instrument">Education Pet</a>
+            </div>
+          </div>
+          <div class="blog-content">
+            <div class="d-flex align-items-center gap-xl-3 gap-2 mb-lg-3 mb-2">
+              <div class="d-flex align-items-center gap-2">
+                <span class="text-lg text-primary"><i class="ph ph-calendar-blank"></i></span>
+                <span class="text-n20 fw-normal">Feb 16, 2022</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="text-lg text-primary"><i class="ph ph-user"></i></span>
+                <span class="text-n20 fw-normal">By Admin</span>
+              </div>
+            </div>
+            <a href="blog-details.html">
+              <h4 class="text-animation-line text-n20 hover-text-primary hover-underline mb-lg-4 mb-3">
+                Get Paid To Walk Dogs
+              </h4>
+            </a>
+            <p class="text-n10 fw-normal">
+              Discover essential tips to ensure your pet's health and happiness, from proper
+              nutrition
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-xs-10">
+        <div class="blog-card">
+          <div class="blog-img scale-animation position-relative radius-20 overflow-hidden mb-lg-7 mb-lg-5 mb-3">
+            <img class="w-100" src="assets/images/blog-img-2.png" alt="blog image">
+            <div class="position-absolute end-0 bottom-0 mb-lg-6 mb-4 me-lg-6 me-4">
+              <a href="#" class="btn-primary n0-border text-n0 font-instrument">Medical Care</a>
+            </div>
+          </div>
+          <div class="blog-content">
+            <div class="d-flex align-items-center gap-xl-3 gap-2 mb-lg-3 mb-2">
+              <div class="d-flex align-items-center gap-2">
+                <span class="text-lg text-primary"><i class="ph ph-calendar-blank"></i></span>
+                <span class="text-n20 fw-normal">Feb 16, 2022</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="text-lg text-primary"><i class="ph ph-user"></i></span>
+                <span class="text-n20 fw-normal">By Admin</span>
+              </div>
+            </div>
+            <a href="blog-details.html">
+              <h4 class="text-animation-line text-n20 hover-text-primary hover-underline mb-lg-4 mb-3">
+                What Does A Dog Walker Do?
+              </h4>
+            </a>
+            <p class="text-n10 fw-normal">
+              Discover essential tips to ensure your pet's health and happiness, from proper
+              nutrition
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-xs-10">
+        <div class="blog-card">
+          <div class="blog-img scale-animation position-relative radius-20 overflow-hidden mb-lg-7 mb-lg-5 mb-3">
+            <img class="w-100" src="assets/images/blog-img-3.png" alt="blog image">
+            <div class="position-absolute end-0 bottom-0 mb-lg-6 mb-4 me-lg-6 me-4">
+              <a href="#" class="btn-primary n0-border text-n0 font-instrument">Pet Boarding</a>
+            </div>
+          </div>
+          <div class="blog-content">
+            <div class="d-flex align-items-center gap-xl-3 gap-2 mb-lg-3 mb-2">
+              <div class="d-flex align-items-center gap-2">
+                <span class="text-lg text-primary"><i class="ph ph-calendar-blank"></i></span>
+                <span class="text-n20 fw-normal">Feb 16, 2022</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="text-lg text-primary"><i class="ph ph-user"></i></span>
+                <span class="text-n20 fw-normal">By Admin</span>
+              </div>
+            </div>
+            <a href="blog-details.html">
+              <h4 class="text-animation-line text-n20 hover-text-primary hover-underline mb-lg-4 mb-3">
+                Walk Your Best doggo friend
+              </h4>
+            </a>
+            <p class="text-n10 fw-normal">
+              Discover essential tips to ensure your pet's health and happiness, from proper
+              nutrition
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-xs-10">
+        <div class="blog-card">
+          <div class="blog-img scale-animation position-relative radius-20 overflow-hidden mb-lg-7 mb-lg-5 mb-3">
+            <img class="w-100" src="assets/images/blog-img-4.png" alt="blog image">
+            <div class="position-absolute end-0 bottom-0 mb-lg-6 mb-4 me-lg-6 me-4">
+              <a href="#" class="btn-primary n0-border text-n0 font-instrument">Education Pet</a>
+            </div>
+          </div>
+          <div class="blog-content">
+            <div class="d-flex align-items-center gap-xl-3 gap-2 mb-lg-3 mb-2">
+              <div class="d-flex align-items-center gap-2">
+                <span class="text-lg text-primary"><i class="ph ph-calendar-blank"></i></span>
+                <span class="text-n20 fw-normal">Feb 16, 2022</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="text-lg text-primary"><i class="ph ph-user"></i></span>
+                <span class="text-n20 fw-normal">By Admin</span>
+              </div>
+            </div>
+            <a href="blog-details.html">
+              <h4 class="text-animation-line text-n20 hover-text-primary hover-underline mb-lg-4 mb-3">
+                How much money walkers make
+              </h4>
+            </a>
+            <p class="text-n10 fw-normal">
+              Discover essential tips to ensure your pet's health and happiness, from proper
+              nutrition
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-xs-10">
+        <div class="blog-card">
+          <div class="blog-img scale-animation position-relative radius-20 overflow-hidden mb-lg-7 mb-lg-5 mb-3">
+            <img class="w-100" src="assets/images/blog-img-5.png" alt="blog image">
+            <div class="position-absolute end-0 bottom-0 mb-lg-6 mb-4 me-lg-6 me-4">
+              <a href="#" class="btn-primary n0-border text-n0 font-instrument">Medical Care</a>
+            </div>
+          </div>
+          <div class="blog-content">
+            <div class="d-flex align-items-center gap-xl-3 gap-2 mb-lg-3 mb-2">
+              <div class="d-flex align-items-center gap-2">
+                <span class="text-lg text-primary"><i class="ph ph-calendar-blank"></i></span>
+                <span class="text-n20 fw-normal">Feb 16, 2022</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="text-lg text-primary"><i class="ph ph-user"></i></span>
+                <span class="text-n20 fw-normal">By Admin</span>
+              </div>
+            </div>
+            <a href="blog-details.html">
+              <h4 class="text-animation-line text-n20 hover-text-primary hover-underline mb-lg-4 mb-3">
+                How To Become A Dog Walker
+              </h4>
+            </a>
+            <p class="text-n10 fw-normal">
+              Discover essential tips to ensure your pet's health and happiness, from proper
+              nutrition
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-xs-10">
+        <div class="blog-card">
+          <div class="blog-img scale-animation position-relative radius-20 overflow-hidden mb-lg-7 mb-lg-5 mb-3">
+            <img class="w-100" src="assets/images/blog-img-6.png" alt="blog image">
+            <div class="position-absolute end-0 bottom-0 mb-lg-6 mb-4 me-lg-6 me-4">
+              <a href="#" class="btn-primary n0-border text-n0 font-instrument">Pet Boarding</a>
+            </div>
+          </div>
+          <div class="blog-content">
+            <div class="d-flex align-items-center gap-xl-3 gap-2 mb-lg-3 mb-2">
+              <div class="d-flex align-items-center gap-2">
+                <span class="text-lg text-primary"><i class="ph ph-calendar-blank"></i></span>
+                <span class="text-n20 fw-normal">Feb 16, 2022</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="text-lg text-primary"><i class="ph ph-user"></i></span>
+                <span class="text-n20 fw-normal">By Admin</span>
+              </div>
+            </div>
+            <a href="blog-details.html">
+              <h4 class="text-animation-line text-n20 hover-text-primary hover-underline mb-lg-4 mb-3">
+                Know how to take care of dogs
+              </h4>
+            </a>
+            <p class="text-n10 fw-normal">
+              Discover essential tips to ensure your pet's health and happiness, from proper
+              nutrition
+            </p>
+          </div>
+        </div>
+      </div>-->
+    </div>
+    <ul class="pagination justify-content-center gap-lg-5 gap-3">
+      <li class="pagination-item">
+        <a class="pagination-link" href="#">
+          <i class="ph ph-arrow-left"></i>
+        </a>
+      </li>
+      <li class="pagination-item"><a class="pagination-link active" href="#">1</a></li>
+      <li class="pagination-item"><a class="pagination-link" href="#">2</a></li>
+      <li class="pagination-item"><a class="pagination-link" href="#">3</a></li>
+      <li class="pagination-item">
+        <a class="pagination-link" href="#">
+          <i class="ph ph-arrow-right"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- المودال -->
+<div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="addPostModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title w-40 text-center" id="addPostModalLabel">Create a Post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- User Information Section -->
+      
+        <!-- Post Content Form -->
+        <form #formData="ngForm" (ngSubmit)="Addpost(formData.value)" class="d-grid gap-3 mx-auto">
+
+          <!-- Story Title Input -->
+          <div class="form-group mb-3">
+            <input type="text" id="storyTitle" name="storyTitle" placeholder="Story Title"
+                   class="form-control form-control-lg rounded-3" ngModel required>
+          </div>
+
+          <!-- Story Content Input -->
+          <div class="form-group mb-3">
+            <textarea id="storyContent" name="storyContent" placeholder="What's on your mind?"
+                      class="form-control form-control-lg rounded-3" rows="4" ngModel required></textarea>
+          </div>
+
+          <!-- Image Upload -->
+          <div class="mb-3 d-flex align-items-center justify-content-between">
+            <label class="btn btn-light rounded-pill px-3 upload-btn" style="cursor: pointer;">
+              <i class="ph ph-camera text-primary"></i> Add Photo
+              <input type="file" name="storyPhoto" (change)="changeImage($event)" hidden>
+            </label>
+            <button type="submit" class="btn btn-primary rounded-pill px-4">Post</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CSS لتحسين التنسيق -->
+<style>
+  /* تنسيق العنوان */
+  .modal-header {
+    border-bottom: none;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+
+  }
+
+  /* تنسيق صورة المستخدم */
+  .profile-img {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ddd;
+  }
+
+  /* تنسيق منطقة الكتابة */
+  .form-control-lg {
+    font-size: 1.1rem;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+  }
+
+    .form-control-lg:focus {
+      border-color: #1877f2;
+      background-color: #fff;
+    }
+
+  /* زر تحميل الصورة */
+  .upload-btn {
+    color: #555;
+    font-size: 0.95rem;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s;
+  }
+
+    .upload-btn:hover {
+      background-color: #e7e7e7;
+    }
+
+  /* زر الإرسال */
+  .btn-primary {
+    background-color: #1877f2;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+
+    .btn-primary:hover {
+      background-color: #165cdb;
+    }
+
+  /* تباعد داخلي وتناسق بين العناصر */
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  /* تنسيق لعرض المودال */
+  .modal-body {
+    padding: 20px;
+  }
+</style>

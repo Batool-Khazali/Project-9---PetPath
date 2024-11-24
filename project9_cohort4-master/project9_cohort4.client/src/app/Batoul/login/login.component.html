@@ -1,0 +1,38 @@
+<div class="wrapper" style="background-image: url('../../../assets/images/Screenshot 2024-10-23 204644.png');">
+  <div class="inner">
+
+    <form #LoginForm="ngForm" (ngSubmit)="login(LoginForm.value)">
+      <h3>Happy to see you back!</h3>
+
+      <div class="form-wrapper">
+        <label for="userEmail">Email</label>
+        <input type="email" name="Email" id="userEmail" class="form-control" ngModel required email #email="ngModel">
+
+        <div *ngIf="email.invalid && email.touched" class="error-message">
+          <small *ngIf="email.errors?.['required']">Please enter your email. <br /></small>
+          <small *ngIf="email.errors?.['email']">Please enter a valid email address.</small>
+        </div>
+      </div>
+
+      <div class="form-wrapper">
+        <label for="userPassword">Password</label>
+        <input type="password" id="userPassword" name="Password" class="form-control" ngModel
+               required minlength="8" maxlength="50" pattern="^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^0-9A-Za-z]).*$" #password="ngModel">
+
+        <div *ngIf="password.invalid && password.touched" class="error-message">
+          <small *ngIf="password.errors?.['required']">Please enter your password. <br /></small>
+          <small *ngIf="password.errors?.['minlength']">Password must be at least 8 characters long. <br /></small>
+          <small *ngIf="password.errors?.['pattern']">
+            Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.
+          </small>
+        </div>
+      </div>
+
+      <button type="submit">Login</button>
+
+      <br />
+      <p>Don't Have An Account Yet? <span routerLink="/register"><a>Register Now</a></span></p>
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,157 @@
+
+<div>
+
+  <!-- inner hero section start -->
+  <section class="inner-hero-section pt-xxl-0 pt-md-15 pt-20 pt-120 bg-primary2">
+    <div class="container position-relative">
+      <div class="row g-6 justify-content-between align-items-center">
+        <div class="col-sm-6">
+          <span class="mb-3 text-h1 text-n20">Contact Us</span>
+          <ul class="breadcrumb d-inline-flex align-items-center justify-content-center gap-lg-2 gap-1">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active"><a routerLink="contactus">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-xl-5 col-sm-6 me-auto d-none d-sm-block">
+          <div class=" inner-hero-banner">
+            <img class="w-100" src="https://localhost:7001/api/Images/getImages/inner-hero-banner.png" alt="inner hero banner">
+          </div>
+        </div>
+      </div>
+      <div class="pows position-absolute top-60 right-n10 translate-middle-y z-n1 d-none d-sm-block">
+        <img class="w-100" src="https://localhost:7001/api/Images/getImages/pows.png" alt="pow">
+      </div>
+    </div>
+  </section>
+  <!-- inner hero section end -->
+  <!-- contact location section start -->
+  <section class="contact-section pt-120 pb-120">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-12">
+          <div class="contact-form">
+            <div class="row g-6">
+              <div class="col-lg-4 col-md-6">
+                <div class="contact-card p-xxl-12 p-xl-10 p-lg-8 p-sm-6 p-4 border n20-1-border radius-32 text-center">
+                  <div class="icon-80px border n20-border bg-primary text-n0 text-h3 mx-auto mb-lg-5 mb-3">
+                    <i class="ph-fill ph-map-pin"></i>
+                  </div>
+                  <h4 class="text-n20 mb-2">Our Location</h4>
+                  <a href="https://maps.app.goo.gl/UctbbehmZ4MAC6Fe7" class="text-n10 hover-underline hover-text-primary" target="_blank" rel="noopener noreferrer">
+                    HR3X+2VM, Al-Sheikh Khalil St., Irbid
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="contact-card p-xxl-12 p-xl-10 p-lg-8 p-sm-6 p-4 border n20-1-border radius-32 text-center">
+                  <div class="icon-80px border n20-border bg-primary text-n0 text-h3 mx-auto mb-lg-5 mb-3">
+                    <i class="ph-fill ph-envelope-open"></i>
+                  </div>
+                  <h4 class="text-n20 mb-2">Our Email Address</h4>
+                  <a href="mailto:example@gmail.com" target="_blank" rel="noopener noreferrer"
+                     class="text-n10 hover-underline hover-text-primary">Contact Scrum Master</a>
+                  <br />
+                  <a href="mailto:batoulkhazali@gmail.com" target="_blank" rel="noopener noreferrer"
+                     class="text-n10 hover-underline hover-text-primary">Contact Product Owner</a>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="contact-card p-xxl-12 p-xl-10 p-lg-8 p-sm-6 p-4 border n20-1-border radius-32 text-center">
+                  <div class="icon-80px border n20-border bg-primary text-n0 text-h3 mx-auto mb-lg-5 mb-3">
+                    <i class="ph-fill ph-phone-call"></i>
+                  </div>
+                  <h4 class="text-n20 mb-2">Contact Number</h4>
+                  <a href="tel:+1234567890" class="text-n10 hover-underline hover-text-primary" target="_blank" rel="noopener noreferrer">
+                    Phone: +1 234-567-890
+                  </a>
+                  <br />
+                  <a href="https://wa.me/1234567890" class="text-n10 hover-underline hover-text-primary" target="_blank" rel="noopener noreferrer">
+                    WhatsApp: +1 234-567-890
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- contact location section end -->
+  <!-- contact form section start -->
+  <section class="contact-form-section pb-120" style="background-color: #FFE9D2; padding-top: 2em">
+    <div class="container">
+      <div class="row g-6 justify-content-between">
+        <div class="col-xl-5 col-lg-6 order-last order-lg-first">
+          <div class="contact-form-banner radius-16">
+            <img class="w-100 radius-16" src="https://localhost:7001/api/Images/getImages/contact-form-banner.png" alt="contact form banner" style="filter: drop-shadow(0 0 0.5rem gray)">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="contact-form">
+            <h1 class="text-n20 mb-lg-10 mb-md-8 mb-6">Need Help? Contact Us</h1>
+
+
+            <form class="d-grid gap-lg-5 gap-3" #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm.value)">
+
+
+              <div class="d-lg-flex d-grid align-items-center justify-content-lg-between gap-lg-6 gap-4">
+
+                <div class="d-grid gap-lg-3 gap-2 w-100">
+                  <label for="name">Full Name <span class="text-primary">*</span></label>
+                  <input type="text" id="name" placeholder="Your Name" name="Name" required ngModel
+                         class="px-xl-8 px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 border n20-1-border radius-pill focus-primary w-100">
+                </div>
+
+                <div class="d-grid gap-lg-3 gap-2 w-100">
+                  <label for="email">Email <span class="text-primary">*</span></label>
+                  <input type="email" id="email" placeholder="Your Email" name="Email" required ngModel #emailInput="ngModel"
+                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                         class="px-xl-8 px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 border n20-1-border radius-pill focus-primary w-100">
+
+                  <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="text-danger">
+                    <small *ngIf="emailInput.errors?.['required']">Email is required.</small>
+                    <small *ngIf="emailInput.errors?.['pattern']">Please enter a valid email address.</small>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="d-lg-flex d-grid align-items-center justify-content-lg-between gap-lg-6 gap-4">
+
+                <div class="d-grid gap-lg-3 gap-2 w-100">
+                  <label for="subject">Subject <span class="text-primary">*</span></label>
+                  <input type="text" id="subject" placeholder="Subject" name="Subject" required ngModel
+                         class="px-xl-8 px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 border n20-1-border radius-pill focus-primary w-100">
+                </div>
+
+              </div>
+
+              <div class="d-grid gap-lg-3 gap-2 w-100">
+
+                <label for="message">Leave us a message<span class="text-primary">*</span></label>
+                <textarea id="message" placeholder="Please type your message here..." name="Message" required ngModel
+                          class="px-xl-8 px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 border n20-1-border radius-16 focus-primary w-100"
+                          rows="6"></textarea>
+
+              </div>
+
+              <div class="mt-4">
+                <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Send Message</button>
+              </div>
+
+
+            </form>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- contact form section end -->
+
+</div>
+
+
+

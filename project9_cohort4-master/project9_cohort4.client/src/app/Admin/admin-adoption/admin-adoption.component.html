@@ -1,0 +1,58 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Animal Adoption List</h2>
+
+  <!-- Display error message if exists -->
+  <div class="alert alert-danger" style="display:none;">
+    Error: Could not load animals!
+  </div>
+
+  <!-- Make the table responsive -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Image</th>
+          <th scope="col">Name</th>
+          <th scope="col">Species</th>
+          <th scope="col">Breed</th>
+          <th scope="col">Age</th>
+          <th scope="col">Size</th>
+          <th scope="col">Temperament</th>
+          <th scope="col">Adoption Status</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let animal of allAnimalsArray">
+          <!-- Loop through allAnimalsArray -->
+          <td>
+            <img [src]="'https://localhost:7001/api/Animals1/getImages/' + animal.image1"
+                 [alt]="animal.name"
+                 class="img-fluid"
+                 style="width: 70px; height: 70px; object-fit: cover;">
+          </td>
+          <td>{{ animal.name }}</td>  <!-- Bind the animal's name -->
+          <td>{{ animal.species }}</td>  <!-- Bind the animal's species -->
+          <td>{{ animal.breed }}</td>  <!-- Bind the animal's breed -->
+          <td>{{ animal.age }}</td>  <!-- Bind the animal's age -->
+          <td>{{ animal.size }}</td>  <!-- Bind the animal's size -->
+          <td>{{ animal.temperament }}</td>  <!-- Bind the animal's temperament -->
+          <td>{{ animal.adoptionStatus }}</td>  <!-- Bind the animal's adoption status -->
+          
+          <td>
+            <button type="button" class="btn btn-outline-primary" [routerLink]="['/dashboard/UpdateAnimal', animal.animalId]">
+              Edit
+            </button>
+            &nbsp;
+            <button type="button" class="btn btn-outline-danger" (click)="deleteAnimal(animal.animalId)">Delete</button><!--   Bind the delete button to the deleteAnimal method-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Info message for no animals available -->
+  <div class="alert alert-info" style="display:none;">
+    No animals available at the moment.
+  </div>
+</div>

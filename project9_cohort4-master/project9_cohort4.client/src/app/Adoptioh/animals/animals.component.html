@@ -1,0 +1,570 @@
+<!--<section class="shop-section pt-120 pb-120 overflow-visible">
+  <div class="container position-relative">
+    <div class="row g-6">-->
+      <!-- Sidebar with Filters -->
+      <!--<div class="col-lg-3">
+        <div class="shop-sidebar">-->
+          <!-- Shelter Filter -->
+          <!--<div class="filter-item mb-4">
+            <label for="shelterFilter">Shelter</label>
+            <select id="shelterFilter" [(ngModel)]="selectedShelter" (change)="applyFilters()">
+              <option value="">All Shelters</option>
+              <option *ngFor="let shelter of shelters" [value]="shelter.shelterId">{{ shelter.shelterName }}</option>
+            </select>
+          </div>-->
+
+          <!-- Species Filter -->
+          <!--<div class="filter-item mb-4">
+            <label for="speciesFilter">Species</label>
+            <select id="speciesFilter" [(ngModel)]="selectedSpecies" (change)="applyFilters()">
+              <option value="">All Species</option>
+              <option *ngFor="let species of speciesList" [value]="species">{{ species }}</option>
+            </select>
+          </div>-->
+
+          <!-- Breed Filter -->
+          <!--<div class="filter-item mb-4">
+            <label for="breedFilter">Breed</label>
+            <input type="text" id="breedFilter" [(ngModel)]="selectedBreed" (input)="applyFilters()" placeholder="Enter breed">
+          </div>-->
+
+          <!-- Age Filter -->
+          <!--<div class="filter-item mb-4">
+            <label for="ageFilter">Age</label>
+            <input type="range" id="ageFilter" [(ngModel)]="selectedAge" (change)="applyFilters()" min="0" max="20" step="1">
+            <span>{{ selectedAge }} years</span>
+          </div>
+        </div>
+      </div>-->
+
+      <!-- Main Content with Animals -->
+      <!--<div class="col-lg-9">
+        <div class="showing-result d-flex align-items-center justify-content-between flex-wrap gap-4 mb-lg-8 mb-6">
+          <span class="text-base fw-normal font-instrument text-n10">
+            Showing {{ (currentPage - 1) * pageSize + 1 }}-{{ Math.min(currentPage * pageSize, totalItems) }} of {{ totalItems }} results
+          </span>
+
+          <div class="d-flex align-items-center gap-2">
+            <div class="sort-type-wrapper py-2 px-4 radius-pill bg-primary2 position-relative">
+              <select id="sort-type" class="w-100 bg-transparent p-0" [(ngModel)]="selectedSort" (change)="sortAnimals()">
+                <option value="default">Default Sorting</option>
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+                <option value="high-low">High - Low</option>
+                <option value="low-high">Low - High</option>
+              </select>
+            </div>
+          </div>
+        </div>-->
+
+        <!-- Product List -->
+        <!--<div class="row g-6 mb-lg-10 mb-md-8 mb-6">
+          <div class="col-md-4 col-xs-6" *ngFor="let animal of displayedAnimals">
+            <div class="product-card border n20-1-border radius-16 overflow-hidden hover-primary-border">
+              <div class="product-thumb scale-animation position-relative">
+                <img class="w-100" [src]="animal.photoUrl" [alt]="animal.name">
+                <div class="product-info p-lg-6 p-4 text-center">
+                  <a [routerLink]="['/animal-details', animal.animalId]" class="text-h6 text-n20 font-otomanopee fw-normal hover-text-primary hover-underline mb-2">
+                    {{ animal.name }}
+                  </a>
+                  <p>{{ animal.breed }}</p>
+                  <span class="text-primary font-instrument fw-semibold">{{ animal.age }} years old</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>-->
+
+        <!-- Pagination -->
+        <!--<ul class="pagination justify-content-center gap-lg-5 gap-3">
+          <li class="pagination-item" (click)="prevPage()" [class.disabled]="currentPage === 1">
+            <a class="pagination-link">
+              <i class="ph ph-arrow-left"></i>
+            </a>
+          </li>
+          <li class="pagination-item" *ngFor="let page of paginationRange()" (click)="setPage(page)">
+            <a class="pagination-link" [class.active]="page === currentPage">{{ page }}</a>
+          </li>
+          <li class="pagination-item" (click)="nextPage()" [class.disabled]="currentPage === totalPages">
+            <a class="pagination-link">
+              <i class="ph ph-arrow-right"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- main start -->
+<!--<main>-->
+<!-- inner hero section start -->
+<!--<section class="inner-hero-section pt-xxl-0 pt-md-15 pt-20 pt-120 bg-primary2">
+  <div class="container position-relative">
+    <div class="row g-6 justify-content-between align-items-center">
+      <div class="col-sm-6">
+        <span class="mb-3 text-h1 text-n20">Shop</span>
+        <ul class="breadcrumb d-inline-flex align-items-center justify-content-center gap-lg-2 gap-1">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active"><a href="#">Shop</a></li>
+        </ul>
+      </div>
+      <div class="col-xl-5 col-sm-6 me-auto d-none d-sm-block">
+        <div class="reveal-bottom inner-hero-banner">
+          <img class="w-100" src="assets/images/inner-hero-banner.png" alt="inner hero banner">
+        </div>
+      </div>
+    </div>
+    <div class="pows position-absolute top-60 right-n10 translate-middle-y z-n1 d-none d-sm-block">
+      <img class="w-100" src="assets/images/pows.png" alt="pow">
+    </div>
+  </div>
+</section>-->
+<!-- inner hero section end -->
+<!--shop section start -->
+<!--<section class="shop-section pt-120 pb-120 overflow-visible">
+  <div class="container position-relative">
+    <div class="row g-6">
+      <div class="col-lg-9">
+        <div class="showing-result d-flex align-items-center justify-content-between flex-wrap gap-4 mb-lg-8 mb-6">
+          <span class="text-base fw-normal font-instrument text-n10">
+            Showing {{ (currentPage - 1) * pageSize + 1 }}-{{ Math.min(currentPage * pageSize, totalItems) }} of {{ totalItems }} results
+          </span>
+
+          <div class="d-flex align-items-center gap-2">
+            <div class="sort-type-wrapper py-2 px-4 radius-pill bg-primary2 position-relative">
+              <select id="sort-type" class="w-100 bg-transparent p-0">
+                <option value="default">Default Sorting</option>
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+                <option value="high-low">High - Low</option>
+                <option value="low-high">Low - High</option>
+              </select>
+            </div>
+            <div>
+              <button class="shop-sidebar-btn d-lg-none btn-primary" type="button">Filter</button>
+            </div>
+          </div>
+        </div>-->
+<!-- product list start -->
+<!--<div class="row g-6 mb-lg-10 mb-md-8 mb-6">
+  <div class="col-md-4 col-xs-6" *ngFor="let animal of displayedAnimals">
+    <div class="product-card border n20-1-border radius-16 overflow-hidden hover-primary-border">
+      <div class="product-thumb scale-animation position-relative">
+        <img class="w-100" [src]="animal.photoUrl" [alt]="animal.name">
+        <div class="product-info p-lg-6 p-4 text-center">
+          <a [routerLink]="['/animal-details', animal.animalId]" class="text-h6 text-n20 font-otomanopee fw-normal hover-text-primary hover-underline mb-2">
+            {{ animal.name }}
+          </a>
+          <p>{{ animal.breed }}</p>
+          <span class="text-primary font-instrument fw-semibold">{{ animal.age }} years old</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+<!-- product list end -->
+<!-- pagination -->
+<!--<ul class="pagination justify-content-center gap-lg-5 gap-3">
+    <li class="pagination-item" (click)="prevPage()" [class.disabled]="currentPage === 1">
+      <a class="pagination-link">
+        <i class="ph ph-arrow-left"></i>
+      </a>
+    </li>
+    <li class="pagination-item" *ngFor="let page of paginationRange()" (click)="setPage(page)">
+      <a class="pagination-link" [class.active]="page === currentPage">{{ page }}</a>
+    </li>
+    <li class="pagination-item" (click)="nextPage()" [class.disabled]="currentPage === totalPages">
+      <a class="pagination-link">
+        <i class="ph ph-arrow-right"></i>
+      </a>
+    </li>
+  </ul>
+
+
+</div>
+<div class="col-lg-3">
+  <div class="shop-sidebar">-->
+<!-- sidebar search form -->
+<!--<div class="sidebar-search-form p-xxl-6 p-4 bg-white border n20-1-border radius-16 mb-lg-10 mb-md-8 mb-6">
+  <h5 class="font-otomanopee fw-normal mb-lg-4 mb-2">
+    <span class="text-primary"><i class="ph-fill ph-paw-print"></i></span>
+    Search
+  </h5>
+  <form action="#"
+        class="d-flex align-items-center border n20-1-border radius-8 focus-primary overflow-hidden">
+    <input type="text" placeholder="Search"
+           class="w-100 font-instrument border-0 outline-0 p-3">
+    <button class="btn-primary border-0 text-n0 text-2xl p-3 radius-8">
+      <span><i class="ph ph-magnifying-glass"></i></span>
+    </button>
+  </form>
+</div>-->
+<!-- Categories list start -->
+<!--<div class="top-products-list p-xxl-8 p-md-6 p-4 bg-white border n20-1-border radius-16">
+  <h5 class="font-otomanopee fw-normal mb-lg-6 mb-4">
+    <span class="text-primary"><i class="ph-fill ph-paw-print"></i></span>
+    Categories
+  </h5>
+  <ul class="d-grid gap-lg-6 gap-4">
+    <li>
+      <a href="#"
+         class="d-flex align-items-center justify-content-between gap-lg-4 gap-2">
+        <span class="text-n20 fw-medium">Accessories</span>
+        <span class="text-primary">(4)</span>
+      </a>
+    </li>
+    <li>
+      <a href="#"
+         class="d-flex align-items-center justify-content-between gap-lg-4 gap-2">
+        <span class="text-n20 fw-medium">Bird Supplies</span>
+        <span class="text-primary">(1)</span>
+      </a>
+    </li>
+    <li>
+      <a href="#"
+         class="d-flex align-items-center justify-content-between gap-lg-4 gap-2">
+        <span class="text-n20 fw-medium">Cat Supplies</span>
+        <span class="text-primary">(1)</span>
+      </a>
+    </li>
+    <li>
+      <a href="#"
+         class="d-flex align-items-center justify-content-between gap-lg-4 gap-2">
+        <span class="text-n20 fw-medium">Fish Supplies</span>
+        <span class="text-primary">(7)</span>
+      </a>
+    </li>
+    <li>
+      <a href="#"
+         class="d-flex align-items-center justify-content-between gap-lg-4 gap-2">
+        <span class="text-n20 fw-medium">Dog Supplies</span>
+        <span class="text-primary">(10)</span>
+      </a>
+    </li>
+    <li>
+      <a href="#"
+         class="d-flex align-items-center justify-content-between gap-lg-4 gap-2">
+        <span class="text-n20 fw-medium">Service</span>
+        <span class="text-primary">(10)</span>
+      </a>
+    </li>
+  </ul>
+</div>-->
+<!-- Categories list end -->
+<!--</div>
+      </div>
+    </div>
+  </div>
+</section>-->
+<!--shop section end -->
+<!--</main>-->
+<!-- main end -->
+
+
+
+
+
+
+
+
+
+
+<!--<main>-->
+  <!-- inner hero section start -->
+  <!--<section class="inner-hero-section pt-xxl-0 pt-md-15 pt-20 pt-120 bg-primary2">-->
+    <!-- المحتوى هنا -->
+  <!--</section>-->
+
+  <!-- shop section start -->
+  <!--<section class="shop-section pt-120 pb-120 overflow-visible">
+    <div class="container position-relative">
+      <div class="row g-6">
+        <div class="col-lg-9">-->
+          <!-- شريط البحث والتصفية -->
+          <!--<div class="showing-result d-flex align-items-center justify-content-between flex-wrap gap-4 mb-lg-8 mb-6">
+            <span class="text-base fw-normal font-instrument text-n10">
+              Showing {{ (currentPage - 1) * pageSize + 1 }}-{{ Math.min(currentPage * pageSize, totalItems) }} of {{ totalItems }} results
+            </span>
+            <div class="d-flex align-items-center gap-2">
+              <form class="d-flex align-items-center border n20-1-border radius-8 focus-primary overflow-hidden">
+
+                <input type="text" placeholder="Search" class="w-100 font-instrument border-0 outline-0 p-3" [(ngModel)]="searchTerm" (input)="onSearchChange(searchTerm)" />
+
+                <button class="btn-primary border-0 text-n0 text-2xl p-3 radius-8" type="button">
+                  <span><i class="ph ph-magnifying-glass"></i></span>
+                </button>
+              </form>
+
+              <div class="sort-type-wrapper py-2 px-4 radius-pill bg-primary2 position-relative">
+                <select id="sort-type" class="w-100 bg-transparent p-0" [(ngModel)]="selectedSort" (change)="sortAnimals()">
+                  <option value="default">Default Sorting</option>
+                  <option value="newest">Newest</option>
+                  <option value="oldest">Oldest</option>
+                  <option value="high-low">High - Low</option>
+                  <option value="low-high">Low - High</option>
+                </select>
+              </div>
+            </div>
+          </div>-->
+
+          <!-- قائمة الحيوانات -->
+          <!--<div class="row g-6 mb-lg-10 mb-md-8 mb-6">
+            <div class="col-md-4 col-xs-6" *ngFor="let animal of displayedAnimals">
+              <div class="product-card border n20-1-border radius-16 overflow-hidden hover-primary-border">
+                <div class="product-thumb scale-animation position-relative">
+                  <img class="w-100" [src]="animal.photoUrl" [alt]="animal.name">
+                  <div class="product-info p-lg-6 p-4 text-center">
+                    <a [routerLink]="['/animal-details', animal.animalId]" class="text-h6 text-n20 font-otomanopee fw-normal hover-text-primary hover-underline mb-2">
+                      {{ animal.name }}
+                    </a>
+                    <p>{{ animal.breed }}</p>
+                    <span class="text-primary font-instrument fw-semibold">{{ animal.age }} years old</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>-->
+
+          <!-- الترقيم -->
+          <!--<ul class="pagination justify-content-center gap-lg-5 gap-3">
+            <li class="pagination-item" (click)="prevPage()" [class.disabled]="currentPage === 1">
+              <a class="pagination-link">
+                <i class="ph ph-arrow-left"></i>
+              </a>
+            </li>
+            <li class="pagination-item" *ngFor="let page of paginationRange()" (click)="setPage(page)" [class.active]="currentPage === page">
+              <a class="pagination-link">{{ page }}</a>
+            </li>
+            <li class="pagination-item" (click)="nextPage()" [class.disabled]="currentPage === totalPages">
+              <a class="pagination-link">
+                <i class="ph ph-arrow-right"></i>
+              </a>
+            </li>
+          </ul>
+
+        </div>-->
+
+        <!-- الشريط الجانبي -->
+        <!--<div class="col-lg-3">
+          <div class="shop-sidebar">-->
+            <!-- البحث -->
+            <!--<div class="sidebar-search-form p-xxl-6 p-4 bg-white border n20-1-border radius-16 mb-lg-10 mb-md-8 mb-6">
+              <h5 class="font-otomanopee fw-normal mb-lg-4 mb-2">
+                <span class="text-primary"><i class="ph-fill ph-paw-print"></i></span>
+                Search
+              </h5>
+              <input type="text" placeholder="Search" class="w-100 font-instrument border-0 outline-0 p-3" [(ngModel)]="searchTerm" (input)="onSearchChange(searchTerm)">
+
+              <button class="btn-primary border-0 text-n0 text-2xl p-3 radius-8" type="button">
+                <span><i class="ph ph-magnifying-glass"></i></span>
+              </button>
+            </div>-->
+
+            <!-- تصفية حسب الأنواع -->
+            <!--<div class="top-products-list p-xxl-8 p-md-6 p-4 bg-white border n20-1-border radius-16">
+              <h5 class="font-otomanopee fw-normal mb-lg-6 mb-4">
+                <span class="text-primary"><i class="ph-fill ph-paw-print"></i></span>
+                Filter by Species
+              </h5>
+              <ul class="d-grid gap-lg-6 gap-4">
+                <li *ngFor="let species of speciesList">
+                  <a href="javascript:void(0);" (click)="onFilterChanged(species)"
+                     class="d-flex align-items-center justify-content-between gap-lg-4 gap-2">
+                    <span class="text-n20 fw-medium">{{ species }}</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- main start -->
+<main>
+  <!--inner hero section start -->
+  <section class="inner-hero-section pt-xxl-0 pt-md-15 pt-20 pt-120 bg-primary2">
+    <div class="container position-relative">
+      <div class="row g-6 justify-content-between align-items-center">
+        <div class="col-sm-6">
+          <span class="mb-3 text-h1 text-n20">Animals</span>
+          <ul class="breadcrumb d-inline-flex align-items-center justify-content-center gap-lg-2 gap-1">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active"><a href="#">Animals</a></li>
+          </ul>
+        </div>
+        <div class="col-xl-5 col-sm-6 me-auto d-none d-sm-block">
+          <div>
+            <img class="w-100" src="assets/images/inner-hero-banner.png" alt="inner hero banner">
+          </div>
+        </div>
+      </div>
+      <div class="pows position-absolute top-60 right-n10 translate-middle-y z-n1 d-none d-sm-block">
+        <img class="w-100" src="assets/images/pows.png" alt="pow">
+      </div>
+    </div>
+  </section>
+  <!-- inner hero section end shop section start -->
+  <section class="shop-section pt-120 pb-120 overflow-visible">
+    <div class="container position-relative">
+      <div class="row g-6">
+        <div class="col-lg-9">
+          <div class="showing-result d-flex align-items-center justify-content-between flex-wrap gap-4 mb-lg-8 mb-6">
+            <span class="text-base fw-normal font-instrument text-n10">
+              Showing {{ Math.min(currentPage * pageSize, totalItems) }} of {{ totalItems }} results
+            </span>
+
+            <div class="d-flex align-items-center gap-2">
+              <div class="sort-type-wrapper py-2 px-4 radius-pill bg-primary2 position-relative">
+                <select id="sort-type" class="w-100 bg-transparent p-0" [(ngModel)]="selectedSort" (change)="sortAnimals()">
+                  <option value="default">Default Sorting</option>
+                  <option value="newest">Newest</option>
+                  <option value="oldest">Oldest</option>
+                  <option value="high-low">High - Low</option>
+                  <option value="low-high">Low - High</option>
+                </select>
+              </div>
+              <div>
+                <button class="shop-sidebar-btn d-lg-none btn-primary" type="button">Filter</button>
+              </div>
+            </div>
+          </div>
+          <!--product list start -->
+          <div class="row g-6 mb-lg-10 mb-md-8 mb-6">
+            <div class="col-md-4 col-xs-6" *ngFor="let animal of displayedAnimals">
+              <div class="product-card border n20-1-border radius-16 overflow-hidden hover-primary-border">
+                <div class="product-thumb scale-animation position-relative">
+                  <img src="https://localhost:7001/api/Animals1/getImages/{{animal.image1}}" [alt]="animal.name" style="width: 200px; height: 200px; object-fit: cover; border-radius: 10px; overflow: hidden;">
+                  <div class="product-info p-lg-6 p-4 text-center">
+                    <a [routerLink]="['/animal-details', animal.animalId]" class="text-h6 text-n20 font-otomanopee fw-normal hover-text-primary hover-underline mb-2">
+                      {{ animal.name }}
+                    </a>
+                    <p>{{ animal.breed }}</p>
+                    <span class="text-primary font-instrument fw-semibold">{{ animal.age }} years old</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--product list end
+          pagination -->
+          <ul class="pagination justify-content-center gap-lg-5 gap-3">
+            <li class="pagination-item" (click)="prevPage()" [class.disabled]="currentPage === 1">
+              <a class="pagination-link">
+                <i class="ph ph-arrow-left"></i>
+              </a>
+            </li>
+            <li class="pagination-item" *ngFor="let page of paginationRange()" (click)="setPage(page)">
+              <a class="pagination-link" [class.active]="page === currentPage">{{ page }}</a>
+            </li>
+            <li class="pagination-item" (click)="nextPage()" [class.disabled]="currentPage === totalPages">
+              <a class="pagination-link">
+                <i class="ph ph-arrow-right"></i>
+              </a>
+            </li>
+          </ul>
+
+
+        </div>
+        <div class="col-lg-3">
+          <div class="shop-sidebar">
+            <!-- sidebar search form -->
+            <div class="sidebar-search-form p-xxl-6 p-4 bg-white border n20-1-border radius-16 mb-lg-10 mb-md-8 mb-6">
+              <h5 class="font-otomanopee fw-normal mb-lg-4 mb-2">
+                <span class="text-primary"><i class="ph-fill ph-paw-print"></i></span>
+                <!-- Search-->
+
+              </h5>
+              <h5 class="font-otomanopee fw-normal mb-lg-4 mb-2">
+                <span class="text-primary"><i class="ph-fill ph-paw-print"></i></span>
+                Search
+              </h5>
+              <!--              <form action="#"
+                      class="d-flex align-items-center border n20-1-border radius-8 focus-primary overflow-hidden">
+  -->
+
+
+
+              <input type="text"
+                     placeholder="Search"
+                     class="w-100 font-instrument outline-0 p-3 custom-input"
+                     [(ngModel)]="searchTerm"
+                     (input)="onSearchChange(searchTerm)">
+
+
+              <!--<button class="btn-primary border-0 text-n0 text-2xl p-3 radius-8" type="button">
+    <span><i class="ph ph-magnifying-glass"></i></span>
+  </button>-->
+              <!--                       </form>
+  -->
+            </div>
+            <!-- Categories list start -->
+            <div class="top-products-list p-xxl-8 p-md-6 p-4 bg-white border n20-1-border radius-16">
+              <h5 class="font-otomanopee fw-normal mb-lg-6 mb-4">
+                <span class="text-primary"><i class="ph-fill ph-paw-print"></i></span>
+                <!-- Categories-->
+              </h5>
+              <ul class="dashboard-grid">
+                <li *ngFor="let species of speciesList"
+                    (click)="onFilterChanged(species)"
+                    [ngClass]="{'active': activeSpecies === species}"
+                    class="dashboard-item">
+                  <span>{{ species }}</span>
+                </li>
+              </ul>
+
+            </div>
+            <!-- Categories list end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--shop section end -->
+</main>
+<!--main end -->

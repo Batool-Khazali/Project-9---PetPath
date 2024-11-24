@@ -1,0 +1,52 @@
+<main>
+
+  <!-- Bootstrap container to center and structure content -->
+  <div class="container mt-4">
+
+    <!-- Optional heading for the section -->
+    <h2 class="text-center mb-4">All Shelters</h2>
+
+    <!-- Styled Bootstrap table -->
+    <div class="table-responsive mx-auto" style="max-width: 1220px;">
+      <table class="table table-light table-hover table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Shelter Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Open Time</th>
+            <th scope="col">Close Time</th>
+            <th scope="col">Open Day</th>
+            <th scope="col">Address</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Angular *ngFor directive to iterate over the array -->
+          <tr *ngFor="let item of Array; let i = index">
+            <th scope="row">{{ item.shelterId }}</th>
+            <td>{{ item.shelterName }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.contactEmail }}</td>
+            <td>{{ item.contactPhone }}</td>
+            <td>{{ item.openTime }}</td>
+            <td>{{ item.closeTime }}</td>
+            <td>{{ item.openDay }}</td>
+            <td>{{ item.address }}</td>
+            <td>
+              <!-- Bootstrap buttons for Edit and Delete -->
+              <button class="btn btn-outline-primary btn-sm" [routerLink]="['/dashboard/UpdateShelters', item.shelterId]">
+                Edit
+              </button>
+              <button class="btn btn-outline-danger btn-sm" (click)="deleteShelter(item.shelterId)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

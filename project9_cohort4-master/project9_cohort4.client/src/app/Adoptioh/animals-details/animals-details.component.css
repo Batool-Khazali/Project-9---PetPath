@@ -1,0 +1,18 @@
+.product-images .image-container {
+  display: none; 
+}
+
+  .product-images .image-container.active {
+    display: block;
+  }
+
+
+.thumbnail-images {
+  display: flex;
+  gap: 10px; 
+  margin-top: 16px;
+}
+
+.thumb-image {
+  border-radius: 8px;
+}

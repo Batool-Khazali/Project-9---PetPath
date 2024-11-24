@@ -1,0 +1,119 @@
+<div class="container-fluid">
+  <div class="main-body">
+    <div class="row" *ngIf="userId || userIdLS">
+
+      <h2>User Profile</h2>
+
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img src="https://localhost:7001/api/Images/getImages/{{userInfo.image}}" alt="{{userInfo.fullName}} image" class="rounded-circle p-1 bg-primary" width="110">
+              <div class="mt-3">
+                <h4>{{userInfo.fullName}}</h4>
+                <p class="text-secondary mb-1">{{userInfo.email}}</p>
+                <p class="text-muted small">{{userInfo.address}}</p>
+                <a id="editPWDbtn" routerLink="/userpassword" class="btn btn-primary">Reset Password</a>
+              </div>
+            </div>
+            <hr class="my-4">
+            <ul class="list-group list-group-flush">
+
+              <li class="list-group-item d-flex justify-content-center align-items-center flex-wrap">
+                <h6>Past Requests</h6>
+              </li>
+
+              <li class="list-group-item d-flex justify-content-center align-items-center flex-wrap">
+                <h6>My Posts</h6>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-body">
+            <form #editForm="ngForm" (ngSubmit)="editUserInfo(editForm.value)">
+              <!-- Full Name -->
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Full Name</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <input type="text" class="form-control" [(ngModel)]="userInfo.fullName" name="Name">
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Email</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <input type="email" class="form-control" [value]="userInfo.email" readonly>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Phone</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <input type="text" class="form-control" [(ngModel)]="userInfo.phone" name="Phone">
+                </div>
+              </div>
+
+              <!-- Address -->
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Address</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <input type="text" class="form-control" [(ngModel)]="userInfo.address" name="Address">
+                </div>
+              </div>
+
+              <!-- Image (File Upload) -->
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Image</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <input type="file" accept="image/*" class="form-control" (change)="changeImage($event)" name="Image">
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-9 text-secondary">
+                  <button type="submit" class="btn btn-primary px-4">Save Changes</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+
+    <div class="row" *ngIf="!userId && !userIdLS">
+
+      <h1>please login to see your profile</h1>
+
+    </div>
+
+
+
+
+
+  </div>
+</div>

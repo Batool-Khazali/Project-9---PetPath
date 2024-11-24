@@ -1,0 +1,9 @@
+.description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* Adjust line clamp as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  padding: 0 50px; /* Add padding to avoid text touching edges */
+}

@@ -1,0 +1,12 @@
+.service-details-section {
+  background-color: #f8f9fa;
+}
+
+  .service-details-section h2 {
+    margin-bottom: 30px;
+  }
+
+  .service-details-section img {
+    max-height: 400px; /* Adjust as necessary */
+    object-fit: cover;
+  }

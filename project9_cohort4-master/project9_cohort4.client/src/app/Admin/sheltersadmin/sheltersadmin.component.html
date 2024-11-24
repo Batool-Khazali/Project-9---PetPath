@@ -1,0 +1,100 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Shelter List</h2>
+
+  <!-- Display error message if exists -->
+  <div class="alert alert-danger" *ngIf="errorMessage" role="alert">
+    Error: {{ errorMessage }}
+  </div>
+
+  <!-- Make the table responsive -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Shelter Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Contact Email</th>
+          <th scope="col">Contact Phone</th>
+          <th scope="col">Open Time</th>
+          <th scope="col">Close Time</th>
+          <th scope="col">Open Day</th>
+          <th scope="col">Address</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shelter of shelters">
+          <td>{{ shelter.shelterName }}</td>
+          <td>{{ shelter.description }}</td>
+          <td>{{ shelter.contactEmail }}</td>
+          <td>{{ shelter.contactPhone }}</td>
+          <td>{{ shelter.openTime }}</td>
+          <td>{{ shelter.closeTime }}</td>
+          <td>{{ shelter.openDay }}</td>
+          <td>{{ shelter.address }}</td>
+          <td>
+            <button type="button" class="btn btn-outline-primary" (click)="editShelter(shelter)">Edit</button>
+            &nbsp;
+            <button type="button" class="btn btn-outline-danger" (click)="confirmDelete(shelter.shelterId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Info message for no shelters available -->
+  <div class="alert alert-info" *ngIf="shelters.length === 0">
+    No shelters available at the moment.
+  </div>
+</div>
+
+<!-- Edit Shelter Modal -->
+<div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': showModal}" style="display: showModal ? 'block' : 'none'">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Shelter</h5>
+        <button type="button" class="close" (click)="closeModal()">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #shelterForm="ngForm" (ngSubmit)="updateShelter()">
+          <div class="form-group">
+            <label for="shelterName">Shelter Name</label>
+            <input type="text" id="shelterName" class="form-control" [(ngModel)]="selectedShelter.shelterName" name="shelterName" required>
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" class="form-control" [(ngModel)]="selectedShelter.description" name="description" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="contactEmail">Contact Email</label>
+            <input type="email" id="contactEmail" class="form-control" [(ngModel)]="selectedShelter.contactEmail" name="contactEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="contactPhone">Contact Phone</label>
+            <input type="text" id="contactPhone" class="form-control" [(ngModel)]="selectedShelter.contactPhone" name="contactPhone" required>
+          </div>
+          <div class="form-group">
+            <label for="openTime">Open Time</label>
+            <input type="text" id="openTime" class="form-control" [(ngModel)]="selectedShelter.openTime" name="openTime" required>
+          </div>
+          <div class="form-group">
+            <label for="closeTime">Close Time</label>
+            <input type="text" id="closeTime" class="form-control" [(ngModel)]="selectedShelter.closeTime" name="closeTime" required>
+          </div>
+          <div class="form-group">
+            <label for="openDay">Open Day</label>
+            <input type="text" id="openDay" class="form-control" [(ngModel)]="selectedShelter.openDay" name="openDay" required>
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" class="form-control" [(ngModel)]="selectedShelter.address" name="address" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Update Shelter</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

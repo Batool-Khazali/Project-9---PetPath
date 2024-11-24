@@ -1,0 +1,98 @@
+<!--<form #addcategory="ngForm" (ngSubmit)="addCategory(addcategory.value)" style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9;">
+  <h2 style="text-align: center; margin-bottom: 20px;">Add Animal</h2>
+  <div class="form-container">-->
+
+    <!-- Name Field -->
+    <!--<div class="form-group" style="margin-bottom: 15px;">
+      <label for="Name" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">Name</label>
+      <input type="text" id="Name" name="Name" ngModel class="form-control" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+      <span class="text-danger" id="Name-error" style="color: red; font-size: 0.875em;"></span>
+    </div>-->
+
+    <!-- Description Field -->
+    <!--<div class="form-group" style="margin-bottom: 15px;">
+      <label for="Description" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">Description</label>
+      <textarea id="description" name="Description" ngModel class="form-control" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+      <span class="text-danger" id="Description-error" style="color: red; font-size: 0.875em;"></span>
+    </div>-->
+
+    <!-- Image Upload Field -->
+    <!--<div class="form-group" style="margin-bottom: 15px;">
+      <label for="Image" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">Category Image</label>
+      <input type="file" name="Image" (change)="changeImage($event)" class="form-control" required accept="image/*">
+      <span class="text-danger" id="Image-error" style="color: red; font-size: 0.875em;"></span>-->
+      <!-- Image Preview -->
+
+    <!--</div>-->
+
+    <!-- Submit Button -->
+    <!--<div class="form-group" style="text-align: center;">
+      <button type="submit" class="btn btn-primary" style="padding: 10px 20px; background-color: #007bff; border: none; border-radius: 5px; color: white; font-size: 1em; cursor: pointer;">Submit</button>
+    </div>
+  </div>
+</form>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container mt-4" style="max-width: 700px;">
+  <!-- Set max-width to reduce width -->
+  <h2 class="text-center mb-4">Add Category </h2>
+
+  <!-- Product form inside a bold, shadowed card -->
+  <div class="p-xxl-15 p-lg-10 p-md-8 p-6 bg-n0 radius-20 border n20-1-border bold-card">
+    <form  #addcategory="ngForm" (ngSubmit)="addCategory(addcategory.value)"  class="d-grid gap-lg-6 gap-md-5 gap-4">
+      <!-- Product Name -->
+      <div class="d-grid gap-2">
+        <label class="text-n20 fw-normal font-instrument">Category Name <span class="text-primary">*</span></label>
+        <input type="text" name="Name" ngModel
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary w-100"
+               >
+      </div>
+
+      <!-- Product Description -->
+      <div class="d-grid gap-2">
+        <label class="text-n20 fw-normal font-instrument">Description <span class="text-primary">*</span></label>
+        <textarea placeholder="Category Description"  name="Description" ngModel 
+                  class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-8 focus-primary w-100"
+                  rows="3" required></textarea>
+      </div>
+
+    
+
+      <!-- Product Image -->
+      <div class="d-grid gap-2">
+        <label class="text-n20 fw-normal font-instrument">Upload Image <span class="text-primary">*</span></label>
+        <input type="file" accept="image/*" name="Image" (change)="changeImage($event)"
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary w-100"
+               required>
+      </div>
+
+   
+
+      <!-- Submit Button -->
+      <button type="submit" class="w-100 btn-primary mt-lg-6">Add Category</button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .bold-card {
+    border: 2px solid #333; /* Darker and thicker border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    background-color: #ffffff; /* Ensure a white background */
+  }
+
+  .no-border {
+    border: none; /* Remove border for the select field */
+  }
+</style>

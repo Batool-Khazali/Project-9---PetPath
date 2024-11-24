@@ -1,0 +1,86 @@
+
+<div class="container mt-4" style="max-width: 700px;">
+  <h2 class="text-center mb-4">Update Shelter</h2>
+
+  <!-- Shelter form inside a bold, shadowed card -->
+  <div class="p-xxl-15 p-lg-10 p-md-8 p-6 bg-n0 radius-20 border n20-1-border bold-card">
+    <form #updateshelter="ngForm" (ngSubmit)="UpdateShelter(updateshelter.value)" class="d-grid gap-lg-6 gap-md-5 gap-4">
+
+      <!-- Shelter ID (Hidden if auto-generated) -->
+      <input type="hidden" name="ShelterId" id="ShelterId" ngModel>
+
+      <!-- Shelter Name Field -->
+      <div class="d-grid gap-2">
+        <label for="ShelterName" class="text-n20 fw-normal font-instrument">Shelter Name <span class="text-primary">*</span></label>
+        <input type="text" id="ShelterName" name="ShelterName" [(ngModel)]="shelter.shelterName" placeholder="Shelter Name"
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary" required>
+      </div>
+
+      <!-- Description Field -->
+      <div class="d-grid gap-2">
+        <label for="Description" class="text-n20 fw-normal font-instrument">Description <span class="text-primary">*</span></label>
+        <input type="text" id="Description" name="Description" [(ngModel)]="shelter.description" placeholder="Description"
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary" required>
+      </div>
+
+      <!-- Contact Email Field -->
+      <div class="d-grid gap-2">
+        <label for="ContactEmail" class="text-n20 fw-normal font-instrument">Contact Email <span class="text-primary">*</span></label>
+        <input type="email" id="ContactEmail" name="ContactEmail" [(ngModel)]="shelter.contactEmail" placeholder="Email"
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary" required>
+      </div>
+
+      <!-- Contact Phone Field -->
+      <div class="d-grid gap-2">
+        <label for="ContactPhone" class="text-n20 fw-normal font-instrument">Contact Phone <span class="text-primary">*</span></label>
+        <input type="text" id="ContactPhone" name="ContactPhone" [(ngModel)]="shelter.contactPhone" placeholder="Phone Number"
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary" required>
+      </div>
+
+      <!-- Opening Time Field -->
+      <div class="d-grid gap-2">
+        <label for="OpenTime" class="text-n20 fw-normal font-instrument">Open Time <span class="text-primary">*</span></label>
+        <input type="text" id="OpenTime" name="OpenTime" [(ngModel)]="shelter.openTime" placeholder="Opening Time (e.g., 9:00 AM)"
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary" required>
+      </div>
+
+      <!-- Closing Time Field -->
+      <div class="d-grid gap-2">
+        <label for="CloseTime" class="text-n20 fw-normal font-instrument">Close Time <span class="text-primary">*</span></label>
+        <input type="text" id="CloseTime" name="CloseTime" [(ngModel)]="shelter.closeTime" placeholder="Closing Time (e.g., 5:00 PM)"
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary" required>
+      </div>
+
+      <!-- Open Days Field -->
+      <div class="d-grid gap-2">
+        <label for="OpenDay" class="text-n20 fw-normal font-instrument">Open Days <span class="text-primary">*</span></label>
+        <input type="text" id="OpenDay" name="OpenDay" [(ngModel)]="shelter.openDay" placeholder="Days Open (e.g., Mon-Fri)"
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary" required>
+      </div>
+
+      <!-- Address Field -->
+      <div class="d-grid gap-2">
+        <label for="Address" class="text-n20 fw-normal font-instrument">Address <span class="text-primary">*</span></label>
+        <input type="text" id="Address" name="Address" [(ngModel)]="shelter.address" placeholder="Address"
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary" required>
+      </div>
+
+      <!-- Submit Button -->
+      <!-- Submit Button -->
+      <button type="submit" class="w-100 btn-primary mt-lg-6">Update Shelter</button>
+    </form>
+
+  </div>
+</div>
+
+<style>
+  .bold-card {
+    border: 2px solid #333; /* Darker and thicker border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    background-color: #ffffff; /* Ensure a white background */
+  }
+
+  .no-border {
+    border: none; /* Remove border for the select field */
+  }
+</style>

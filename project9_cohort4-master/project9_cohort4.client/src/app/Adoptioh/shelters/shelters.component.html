@@ -1,0 +1,46 @@
+<!-- main start -->
+
+
+  <!-- inner hero section start -->
+  <section class="inner-hero-section pt-xxl-0 pt-md-15 pt-20 pt-120 bg-primary2">
+    <div class="container position-relative">
+      <div class="row g-6 justify-content-between align-items-center">
+        <div class="col-sm-6">
+          <span class="mb-3 text-h1 text-n20">Shelters</span>
+          <ul class="breadcrumb d-inline-flex align-items-center justify-content-center gap-lg-2 gap-1">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active"><a href="#">Shelters</a></li>
+          </ul>
+        </div>
+        <div class="col-xl-5 col-sm-6 me-auto d-none d-sm-block">
+          <div>
+            <img class="w-100" src="assets/images/inner-hero-banner.png" alt="inner hero banner">
+          </div>
+        </div>
+      </div>
+      <div class="pows position-absolute top-60 right-n10 translate-middle-y z-n1 d-none d-sm-block">
+        <img class="w-100" src="../../../assets/images/pows.png" alt="pow">
+      </div>
+    </div>
+  </section>
+
+  <section class="shelters-section pt-120 pb-120">
+    <div class="container">
+      <h2 class="text-center mb-5 text-n20 font-weight-bold">Shelters</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6" *ngFor="let shelter of shelters">
+          <div class="card mb-4 shadow-sm border-0 hover-shadow">
+            <div class="card-body">
+              <h5 class="card-title text-primary">{{ shelter.shelterName }}</h5>
+              <p class="card-text text-muted">{{ shelter.description }}</p>
+              <p><strong>Contact Email:</strong> <a href="mailto:{{ shelter.contactEmail }}">{{ shelter.contactEmail }}</a></p>
+              <p><strong>Contact Phone:</strong> <a href="tel:{{ shelter.contactPhone }}">{{ shelter.contactPhone }}</a></p>
+              <p><strong>Address:</strong> {{ shelter.address }}</p>
+              <p><strong>Open Time:</strong> {{ shelter.openTime }} - {{ shelter.closeTime }}</p>
+              <p><strong>Open Day:</strong> {{ shelter.openDay }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

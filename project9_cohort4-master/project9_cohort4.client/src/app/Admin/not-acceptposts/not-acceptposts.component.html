@@ -1,0 +1,31 @@
+<hr />
+<h2 class="text-center my-4"> Not Accept Post </h2> <!-- Title for the table -->
+<hr />
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Full name</th>
+      <th scope="col">Time sent</th>
+      <th scope="col">The Post</th>
+      <th scope="col">Image</th>
+
+      <th scope="col">Actions</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Testimonial of TestimonialArray">
+      <td>{{Testimonial.user.fullName}}</td>
+      <td>{{Testimonial.storyDate}}</td>
+      <td>{{Testimonial.storyTitle}}</td>
+      <td><img class="w-20 h-20" src="https://localhost:7001{{Testimonial.storyPhoto}}" /></td>
+
+      <td>
+        <button class="btn btn-success" (click)="AcceptTheTestimonial(Testimonial.postId)">Accept</button>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteContactById(Testimonial.postId)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

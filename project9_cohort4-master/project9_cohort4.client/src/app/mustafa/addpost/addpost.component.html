@@ -1,0 +1,24 @@
+<form #formData="ngForm" class="d-grid gap-lg-5 gap-3 mx-auto" style="width: 60%; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); height: 70vh; margin: 8% 0 5% 0; padding: 2%; background-color: lightgray" (ngSubmit)="Addpost(formData.value)">
+  <div class="d-lg-flex d-grid align-items-center justify-content-lg-between gap-lg-6 gap-4">
+    <div class="d-grid gap-lg-3 gap-2 w-100">
+      <label for="name">StoryContent <span class="text-primary">*</span></label>
+      <input type="text" id="name" name="storyContent" placeholder="write post"
+             class="px-xl-8 px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 border n20-1-border radius-pill focus-primary w-100" ngModel required>
+    </div>
+    <div class="d-grid gap-lg-3 gap-2 w-100">
+      <label for="email">StoryTitle <span class="text-primary">*</span></label>
+      <input type="text" id="email" name="storyTitle" placeholder="StoryTitle"
+             class="px-xl-8 px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 border n20-1-border radius-pill focus-primary w-100" ngModel required>
+    </div>
+  </div>
+  <div class="d-lg-flex d-grid align-items-center justify-content-lg-between gap-lg-6 gap-4">
+    <div class="d-grid gap-lg-3 gap-2 w-100">
+      <label for="phone">Image <span class="text-primary">*</span></label>
+      <input type="file" id="phone" name="storyPhoto" placeholder="image"
+             class="px-xl-8 px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 border n20-1-border radius-pill focus-primary w-100" (change)="changeImage($event)" required>
+    </div>
+  </div>
+  <div class="mt-4">
+    <button type="submit" class="btn btn-primary">Send Message</button>
+  </div>
+</form>

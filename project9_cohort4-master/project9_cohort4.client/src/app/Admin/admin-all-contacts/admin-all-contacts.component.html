@@ -1,0 +1,90 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Contacts List</h2>
+
+  <div class="row mb-4 align-items-center">
+    <div class="col-md-6">
+      <label for="nameEmailSearch" class="form-label fw-bold me-2">Search by name or email:</label>
+      <input id="nameEmailSearch" type="text" placeholder="Enter your search"
+             (input)="searchContacts($event)"
+             class="form-control d-inline-block w-75" />
+    </div>
+    <div class="col-md-6">
+      <label for="replySearch" class="form-label fw-bold me-2">Check admin reply:</label>
+      <select id="replySearch"
+              class="form-control d-inline-block w-75"
+              (change)="searchReply($event)">
+        <option value="all">All users</option>
+        <option value="noReply">Not replied</option>
+        <option value="replied">Replies</option>
+      </select>
+    </div>
+  </div>
+
+
+  <!-- Make the table responsive -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Date</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Subject</th>
+          <th scope="col">Message</th>
+          <th scope="col">Reply</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let message of contactsArray; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{message.sentAt | date}}</td>
+          <td>{{message.senderName}}</td>
+          <td>{{message.senderEmail}}</td>
+          <td>{{message.subject}}</td>
+
+          <td>
+            <div class="message-container">
+              <span *ngIf="!message.expanded">{{ truncateMessage(message.message, 50) }}</span>
+              <span *ngIf="message.expanded">{{ message.message }}</span>
+              <span *ngIf="message.message.length > 50 && !message.expanded">
+                ... <a (click)="toggleMessage(message)" class="text-primary">Read More</a>
+              </span>
+              <span *ngIf="message.message.length > 50 && message.expanded">
+                ... <a (click)="toggleMessage(message)" class="text-primary">Show Less</a>
+              </span>
+            </div>
+          </td>
+
+
+
+          <td>
+            <div class="admin-reply-container">
+              <span *ngIf="!message.adminReplyExpanded">{{ truncateMessage(message.adminReply, 50) }}</span>
+              <span *ngIf="message.adminReplyExpanded">{{ message.adminReply }}</span>
+              <span *ngIf="message.adminReply.length > 50 && !message.adminReplyExpanded">
+                ... <a  (click)="toggleAdminReply(message)" class="text-primary">Read More</a>
+              </span>
+              <span *ngIf="message.adminReply.length > 50 && message.adminReplyExpanded">
+                ... <a  (click)="toggleAdminReply(message)" class="text-primary">Show Less</a>
+              </span>
+            </div>
+          </td>
+
+          <td>
+            <a routerLink="/dashboard/contactdetails/{{message.contactId}}" class="btn btn-outline-primary">Details</a>
+          </td>
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Info message for no products available -->
+  <div class="alert alert-info" *ngIf="contactsArray == null">
+    No message recieved at the moment.
+  </div>
+</div>

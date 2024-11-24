@@ -1,0 +1,98 @@
+		<div class="wrapper" style="background-image: url('../../../assets/images/Screenshot 2024-10-23 204644.png');">
+			<div class="inner">
+
+				<form #RegistrationForm="ngForm" (ngSubmit)="newUser(RegistrationForm.value)" novalidate>
+					<h3>Become part of our family!</h3>
+
+					<!-- Full Name -->
+					<div class="form-wrapper">
+						<label for="userName">Full Name</label>
+						<input type="text"
+									 name="fullName"
+									 id="userName"
+									 class="form-control"
+									 ngModel
+									 required
+									 minlength="6"
+									 maxlength="50"
+									 pattern="^[A-Za-z][A-Za-z0-9\s-]*$"
+									 #fullName="ngModel" />
+						<div *ngIf="fullName.invalid && fullName.touched" class="error-message">
+							<small *ngIf="fullName.errors?.['required']">Please enter your full name. <br /></small>
+							<small *ngIf="fullName.errors?.['minlength']">Full name must be at least 6 characters long. <br /></small>
+							<small *ngIf="fullName.errors?.['maxlength']">Full name cannot exceed 50 characters. <br /></small>
+							<small *ngIf="fullName.errors?.['pattern']">Only alphabets, numbers, spaces, and dashes are allowed.</small>
+						</div>
+					</div>
+
+					<!-- Email -->
+					<div class="form-wrapper">
+						<label for="userEmail">Email</label>
+						<input type="email"
+									 name="email"
+									 id="userEmail"
+									 class="form-control"
+									 ngModel
+									 required
+									 email
+									 #email="ngModel" />
+						<div *ngIf="email.invalid && email.touched" class="error-message">
+							<small *ngIf="email.errors?.['required']">Please enter your email. <br /></small>
+							<small *ngIf="email.errors?.['email']">Please enter a valid email address.</small>
+						</div>
+					</div>
+
+					<!-- Password -->
+					<div class="form-wrapper">
+						<label for="userPassword">Password</label>
+						<input type="password"
+									 id="userPassword"
+									 name="password"
+									 class="form-control"
+									 ngModel
+									 required
+									 minlength="8"
+									 maxlength="50"
+									 pattern="^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^0-9A-Za-z]).*$"
+									 #password="ngModel" />
+						<div *ngIf="password.invalid && password.touched" class="error-message">
+							<small *ngIf="password.errors?.['required']">Please enter your password. <br /></small>
+							<small *ngIf="password.errors?.['minlength']">Password must be at least 8 characters long. <br /></small>
+							<small *ngIf="password.errors?.['pattern']">
+								Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.
+							</small>
+						</div>
+					</div>
+
+					<!-- Confirm Password -->
+					<div class="form-wrapper">
+						<label for="userConPassword">Confirm Password</label>
+						<input type="password"
+									 id="userConPassword"
+									 name="ConfirmPassword"
+									 class="form-control"
+									 ngModel
+									 required
+									 #confirmPassword="ngModel"
+									 (blur)="checkPWd(RegistrationForm.value)" />
+						<div *ngIf="confirmPassword.invalid && confirmPassword.touched" class="error-message">
+							<small *ngIf="confirmPassword.errors?.['required']">
+								Please confirm your password.
+							</small>
+						</div>
+						<div *ngIf="!passwordsMatch && confirmPassword.touched" class="error-message">
+							<small>Passwords do not match.</small>
+						</div>
+					</div>
+
+					<button type="submit" [disabled]="RegistrationForm.invalid">Register Now</button>
+
+					<br />
+					<p>
+						Already A Member Of Our Family? <span routerLink="/login"><a>Login Now</a></span>
+					</p>
+				</form>
+
+
+			</div>
+		</div>

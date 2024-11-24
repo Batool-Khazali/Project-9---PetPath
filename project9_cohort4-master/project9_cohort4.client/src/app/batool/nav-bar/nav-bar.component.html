@@ -1,0 +1,85 @@
+<!-- back to top -->
+<button class="back-to-top position-fixed end-0 bottom-0 d-center me-5">
+  <span class="text-h4">
+    <i class="ph ph-arrow-up"></i>
+  </span>
+</button>
+
+<!-- header -->
+<!-- header section start -->
+<header class="header-section position-fixed top-0 start-50 translate-middle-x" data-lenis-prevent>
+  <div class="container px-0">
+    <!-- navbar area -->
+    <div class="d-flex align-items-center justify-content-between px-lg-0 px-4 py-lg-5 py-3">
+      <div class="logo">
+        <a routerLink="/">
+          <img class="w-100 d-block d-sm-none" src="assets/images/favicon.png" alt="logo">
+          <img class="w-100 d-none d-sm-block" src="assets/images/logo.png" alt="logo">
+        </a>
+      </div>
+      <nav class="navbar-area">
+        <ul class="nav-menu-items d-lg-flex d-grid gap-3xl-8 gap-xxl-6 gap-4">
+
+          <li class="menu-link">
+            <a routerLink="/" class="slide-vertical" data-splitting>Home</a>
+          </li>
+
+          <li class="menu-link">
+            <a routerLink="/services" class="slide-vertical" data-splitting>Our Services</a>
+          </li>
+
+          <li class="menu-link">
+            <a routerLink="/animals" class="slide-horizontal">Adoption</a>
+          </li>
+
+          <li class="menu-link">
+            <a routerLink="/allposts" class="slide-vertical" data-splitting>Our Community</a>
+          </li>
+
+          <li class="menu-link">
+            <a routerLink="/about" class="slide-vertical" data-splitting>About</a>
+          </li>
+
+          <li class="menu-link">
+            <a routerLink="/contactus" class="slide-vertical" data-splitting>Contact</a>
+          </li>
+
+        </ul>
+      </nav>
+      <div class="nav-btns d-flex align-items-center gap-lg-5 gap-3">
+        <!-- search icon -->
+        <button class="search-btn text-2xl font-semibold text-n20">
+          <i class="ph ph-magnifying-glass"></i>
+        </button>
+
+        <a routerLink="/userprofile" class="btn-primary text-nowrap" *ngIf="userId || userIdLS">Profile</a>
+        <a (click)="logout()" id="NavBarProfile" *ngIf="userId || userIdLS">Logout</a>
+        <a routerLink="/login" class="btn-primary text-nowrap" *ngIf="!userId && !userIdLS">Login</a>
+
+
+        <!--<a routerLink="/userprofile" class="btn-primary text-nowrap" *ngIf="userIdLS !== null && userIdLS !== undefined">Profile</a>
+        <a (click)="logout()" id="NavBarProfile" *ngIf="userIdLS !== null && userIdLS !== undefined">Logout</a>
+        <a routerLink="/login" class="btn-primary text-nowrap" *ngIf="userIdLS === null || userIdLS === undefined">Login</a>-->
+
+        <button class="menu-toggle-btn text-2xl">
+          <i class="ph ph-list"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- header section end -->
+<!-- search form -->
+<div class="search-form-wrapper position-fixed top-0 start-0 w-100 vh-100 d-flex align-items-center justify-content-center bg-n10">
+  <button class="search-close-btn position-absolute top-0 end-0 text-2xl text-n0 mt-5 me-5">
+    <i class="ph ph-x"></i>
+  </button>
+  <div class="search-form">
+    <form class="d-flex align-items-center gap-4 border n10-border p-2">
+      <input type="text" placeholder="Search ..." class="w-100 p-2">
+      <button type="submit" class="text-2xl text-n0">
+        <i class="ph ph-magnifying-glass"></i>
+      </button>
+    </form>
+  </div>
+</div>

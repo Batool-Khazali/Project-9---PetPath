@@ -1,0 +1,45 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">{{UserInfo.fullName}} Details</h2>
+
+  <div class="user-info-card p-xxl-15 p-lg-10 p-md-8 p-6">
+    <!-- Image -->
+    <div class="image-container">
+      <img src="https://localhost:7001/api/Images/getImages/{{UserInfo.image}}" alt="{{UserInfo.fullName}}" />
+    </div>
+
+    <!-- User Details -->
+    <div class="user-details">
+      <div>
+        <label class="detail-label">User Name:</label>
+        <p>{{UserInfo.fullName}}</p>
+      </div>
+
+      <div>
+        <label class="detail-label">Email:</label>
+        <p>{{UserInfo.email}}</p>
+      </div>
+
+      <div>
+        <label class="detail-label">Phone:</label>
+        <p>{{UserInfo.phone}}</p>
+      </div>
+
+      <div>
+        <label class="detail-label">Address:</label>
+        <p>{{UserInfo.address}}</p>
+      </div>
+
+      <!--<div>
+        <label class="detail-label">Is Admin:</label>
+        <p>{{UserInfo.isAdmin}}-->
+            <!--<span style="visibility:hidden">........</span>
+            <button class="btn btn-outline-info" (click)="assign(userId)" *ngIf="UserInfo.isAdmin == false">Assign as admin</button>-->
+        <!--</p>
+      </div>-->
+
+
+
+    </div>
+  </div>
+</div>
+

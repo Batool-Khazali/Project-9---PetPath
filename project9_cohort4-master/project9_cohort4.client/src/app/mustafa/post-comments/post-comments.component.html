@@ -1,0 +1,337 @@
+<!-- service details section start -->
+<section class="service-details-section pt-120">
+  <div class="container">
+    <div class="row g-6">
+      <div class="col-lg-8" *ngFor="let item of postdetails">
+        <div class="service-details-banner mb-lg-10 mb-md-8 mb-6">
+          <img class="w-100 radius-16 sizeimag" src="https://localhost:7001{{item.storyPhoto}}"
+               alt="service details banner">
+        </div>
+        <div class="service-details-content d-grid gap-lg-6 gap-4 mb-lg-10 mb-md-8 mb-6">
+          <div class="d-flex align-items-center gap-lg-4 gap-2">
+            <div class="d-flex align-items-center gap-1 text-n20">
+              <span class="text-lg"><i class="ph ph-user-circle"></i></span>
+              <span>{{item.user.fullName}}</span>
+            </div>
+            <span class="d-block vr-line bg-n20-2"></span>
+            <div class="d-flex align-items-center gap-1 text-n20">
+              <span class="text-lg"><i class="ph ph-tag"></i></span>
+              <span>*</span>
+            </div>
+            <span class="d-block vr-line bg-n20-2"></span>
+            <div class="d-flex align-items-center gap-1 text-n20">
+              <span class="text-lg"><i class="ph ph-calendar-blank"></i></span>
+              <span>{{item.storyDate | date: 'yyyy/MM/dd hh:mm a'}}</span>
+            </div>
+          </div>
+          <h1>{{item.storyTitle}}</h1>
+          <p class="text-n10 font-instrument fw-normal">
+            {{item.storyContent}}
+          </p>
+
+        </div>
+        <div class="post-quote d-flex gap-xl-7 gap-md-5 gap-3 p-xl-14 p-md-10 p-md-8 p-xs-6 p-4 bg-primary radius-16 mb-lg-10 mb-md-8 mb-6">
+          <div class="post-quote-icon">
+            <img src="assets/images/post-quote-icon.png" alt="quote icon">
+          </div>
+          <span class="text-n0 text-xl fw-semibold">
+            “When you listen to yourself, everything come naturally. It come from in, like a kind of
+            will to do something”
+          </span>
+        </div>
+
+        <div class="service-details-content d-flex align-items-center justify-content-between gap-lg-6 gap-4 flex-wrap mb-lg-10 mb-md-8 mb-6">
+          <div class="d-flex align-items-center gap-lg-4 gap-2">
+
+            <div class="position-relative d-inline-block" data-lenis-prevent>
+              <div class="share-options" id="shareOptions">
+                <a href="#" class="share-option" data-platform="facebook">
+                  <i class="ph-fill ph-facebook-logo"></i> Facebook
+                </a>
+                <a href="#" class="share-option" data-platform="twitter">
+                  <i class="ph-fill ph-twitter-logo"></i> Twitter
+                </a>
+                <a href="#" class="share-option" data-platform="linkedin">
+                  <i class="ph-fill ph-linkedin-logo"></i> LinkedIn
+                </a>
+                <a href="#" class="share-option" data-platform="pinterest">
+                  <i class="ph-fill ph-pinterest-logo"></i> Pinterest
+                </a>
+                <a href="#" class="share-option" data-platform="reddit">
+                  <i class="ph-fill ph-reddit-logo"></i> Reddit
+                </a>
+                <a href="#" class="share-option" data-platform="whatsapp">
+                  <i class="ph-fill ph-whatsapp-logo"></i> WhatsApp
+                </a>
+                <a href="#" class="share-option" data-platform="telegram">
+                  <i class="ph-fill ph-telegram-logo"></i> Telegram
+                </a>
+                <a href="#" class="share-option" data-platform="tumblr">
+                  <i class="ph-fill ph-tumblr-logo"></i> Tumblr
+                </a>
+                <a href="#" class="share-option" data-platform="email">
+                  <i class="ph-fill ph-envelope"></i> Email
+                </a>
+                <a href="#" class="share-option" id="copyLink">
+                  <i class="ph-fill ph-link"></i> Copy Link
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- comment form -->
+        <div class="comment-form">
+          <div class="mb-lg-4 mb-2">
+            <h3 class="text-n20 font-otomanopee fw-normal mb-lg-5 mb-3">Leave a comment</h3>
+          </div>
+          <form #formData="ngForm" class="d-grid gap-lg-6 gap-4" (ngSubmit)="Addcomment(formData.value)" >
+
+            <div class="mb-lg-2 mb-1">
+              <textarea name="content"
+                        class="px-xl-6 px-lg-4 px-3 py-lg-3 py-2 w-100 border n20-1-border radius-8 focus-primary w-100"
+                        rows="6" placeholder="comment here" ngModel ></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn-primary mb-5">Add Comment</button>
+            </div>
+          </form>
+        </div>
+        <!-- comment area -->
+        <div class="comment-area mb-lg-10 mb-md-8 mb-6">
+          <h3 class="text-n20 font-otomanopee fw-normal mb-lg-6 mb-4"> Comments</h3>
+          <div class="comment-wrapper d-grid gap-lg-6 gap-4">
+            <div class="single-comment d-grid gap-lg-4 gap-2" *ngFor="let item of comments">
+              <div class="d-flex align-items-center justify-content-between gap-lg-4 gap-2 flex-wrap">
+                <div class="d-flex align-items-center gap-lg-4 gap-2">
+                  <div class="commenter icon-100px">
+                    <img class="w-100" src="https://localhost:7001/api/Images/getImages/{{item.user.image}}" alt="author">
+                  </div>
+                  <div class="d-grid gap-1">
+                    <span class="text-n20 font-instrument fw-bold">{{item.user.fullName}}</span>
+                    <span class="text-n10 font-instrument fw-normal">
+                      {{item.createDate | date: 'yyyy/MM/dd hh:mm a'}}
+                    </span>
+                  </div>
+                </div>
+                <div class="d-flex flex-column">
+                  <button (click)="toggleForm(item)" class="comment-replay-btn btn-primary py-1 px-2 radius-4 font-instrument fw-normal mb-3">
+                    <span><i class="ph-fill ph-share-fat"></i></span> Reply
+                  </button>
+                  <button (click)="getreplaybycommentid(item.commentId)" (click)="replaysForm(item)" class="comment-replay-btn btn-primary py-1 px-2 radius-4 font-instrument fw-normal">
+                    <span><i class="ph-fill ph-share-fat"></i></span> All replays
+                  </button>
+                </div>
+              </div>
+              <span class="text-n10 font-instrument fw-normal">
+                {{item.content}}
+              </span>
+              <div class="replies" *ngIf="item.showreply">
+                <div class="single-reply mb-2" *ngFor="let reply of replays" style="border:1px solid gray;border-radius:10px">
+                  <div class="d-flex align-items-center gap-2">
+                    <div class="commenter icon-100px">
+                      <img class="w-50 ms-10" src="https://localhost:7001/api/Images/getImages/{{reply.image}}" alt="author">
+                    </div>
+                    <span class="text-n20 font-instrument fw-bold">{{reply.fullName}}</span>
+                    <span class="text-n10 font-instrument fw-normal">{{reply.createDate | date: 'yyyy/MM/dd hh:mm a'}}</span>
+                  </div>
+                  <p class="text-start m-10">{{reply.content}}</p>
+                </div>
+              </div>
+              <div class="form" *ngIf="item.showForm">
+                <form action="#" #formdata="ngForm" (ngSubmit)="addreplay(formdata.value ,item.commentId)"
+                      class="d-flex align-items-center gap-lg-4 gap-2 border n20-border radius-4 overflow-hidden p-3">
+                  <textarea class="comment-textarea w-100 font-instrument border-0" name="content" ngModel
+                            placeholder="Write a comment..."></textarea>
+
+                  <button class="comment-replay-submit btn-primary py-1 px-2 radius-4 font-instrument fw-normal"
+                          type="submit">
+                    <i class="ph-fill ph-paper-plane-right"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="col-lg-4">
+
+        <div class="sidebar-search-form p-xl-8 p-md-6 p-4 bg-white border n20-1-border radius-16 mb-lg-10 mb-md-8 mb-6">
+          <form action="#"
+                class="d-flex align-items-center border n20-1-border radius-8 focus-primary overflow-hidden">
+            <input type="text" placeholder="Search"
+                   class="w-100 font-instrument border-0 outline-0 p-lg-4 p-3 ps-lg-6 ps-4">
+            <button class="btn-primary border-0 text-n0 text-2xl py-lg-4 py-3 radius-8">
+              <span><i class="ph ph-magnifying-glass"></i></span>
+            </button>
+          </form>
+        </div>
+        <!-- service list start -->
+        <div class="service-list p-xl-8 p-md-6 p-4 bg-white border n20-1-border radius-16 mb-lg-10 mb-md-8 mb-6">
+          <h5 class="font-otomanopee fw-normal mb-lg-6 mb-4">
+            <span class="text-primary"><i class="ph-fill ph-paw-print"></i></span>
+            Our Services
+          </h5>
+          <ul class="d-grid gap-lg-4 gap-3">
+            <li>
+              <a href="#"
+                 class="service-list-item d-flex align-items-center justify-content-between text-n20 font-instrument py-lg-3 py-2 px-lg-6 px-4 border n20-1-border radius-16 transition hover-bg-primary hover-text-n0">
+                Dog Care
+                <span><i class="ph ph-arrow-up-right"></i></span>
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                 class="service-list-item d-flex align-items-center justify-content-between text-n20 font-instrument py-lg-3 py-2 px-lg-6 px-4 border n20-1-border radius-16 transition hover-bg-primary hover-text-n0">
+                Pet Grooming
+                <span><i class="ph ph-arrow-up-right"></i></span>
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                 class="service-list-item d-flex align-items-center justify-content-between text-n20 font-instrument py-lg-3 py-2 px-lg-6 px-4 border n20-1-border radius-16 transition hover-bg-primary hover-text-n0">
+                Cat Care
+                <span><i class="ph ph-arrow-up-right"></i></span>
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                 class="service-list-item d-flex align-items-center justify-content-between text-n20 font-instrument py-lg-3 py-2 px-lg-6 px-4 border n20-1-border radius-16 transition hover-bg-primary hover-text-n0">
+                Veterinary Care
+                <span><i class="ph ph-arrow-up-right"></i></span>
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                 class="service-list-item d-flex align-items-center justify-content-between text-n20 font-instrument py-lg-3 py-2 px-lg-6 px-4 border n20-1-border radius-16 transition hover-bg-primary hover-text-n0">
+                Health & Treatment
+                <span><i class="ph ph-arrow-up-right"></i></span>
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                 class="service-list-item d-flex align-items-center justify-content-between text-n20 font-instrument py-lg-3 py-2 px-lg-6 px-4 border n20-1-border radius-16 transition hover-bg-primary hover-text-n0">
+                Pet Boarding
+                <span><i class="ph ph-arrow-up-right"></i></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- service list end -->
+        <!-- recent post list start -->
+        <div class="recent-post-list p-xl-8 p-md-6 p-4 bg-white border n20-1-border radius-16 mb-lg-10 mb-md-8 mb-6">
+          <h5 class="font-otomanopee fw-normal mb-lg-6 mb-4">
+            <span class="text-primary"><i class="ph-fill ph-paw-print"></i></span>
+            Recent Post
+          </h5>
+          <ul class="d-grid gap-lg-6 gap-4">
+            <li>
+              <a href="#" class="d-flex align-items-center gap-lg-4 gap-2">
+                <div class="recent-post-thumb icon-100px">
+                  <img class="w-100 radius-8" src="assets/images/recent-post-1.png"
+                       alt="recent post">
+                </div>
+                <div class="d-grid">
+                  <span class="text-sm text-n10 font-instrument">July 17, 2024</span>
+                  <span class="text-n20 fw-semibold font-instrument hover-text-primary hover-underline">
+                    How to Keep Your Pet Cool During Hot Weather
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="d-flex align-items-center gap-lg-4 gap-2">
+                <div class="recent-post-thumb icon-100px">
+                  <img class="w-100 radius-8" src="assets/images/recent-post-2.png"
+                       alt="recent post">
+                </div>
+                <div class="d-grid">
+                  <span class="text-sm text-n10 font-instrument">April 17, 2024</span>
+                  <span class="text-n20 fw-semibold font-instrument hover-text-primary hover-underline">
+                    Understanding Pet Allergies and How to Manage Them
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="d-flex align-items-center gap-lg-4 gap-2">
+                <div class="recent-post-thumb icon-100px">
+                  <img class="w-100 radius-8" src="assets/images/recent-post-3.png"
+                       alt="recent post">
+                </div>
+                <div class="d-grid">
+                  <span class="text-sm text-n10 font-instrument">April 17, 2024</span>
+                  <span class="text-n20 fw-semibold font-instrument hover-text-primary hover-underline">
+                    How to Help Your Pet Cope with Separation Anxiety
+                  </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- recent post list end -->
+        <!-- tag list start -->
+        <div class="tag-list p-xl-8 p-md-6 p-4 bg-white border n20-1-border radius-16 mb-lg-10 mb-md-8 mb-6">
+          <h5 class="font-otomanopee fw-normal mb-lg-6 mb-4">
+            <span class="text-primary"><i class="ph-fill ph-paw-print"></i></span>
+            Tags
+          </h5>
+          <ul class="d-flex gap-lg-4 gap-3 flex-wrap">
+            <li>
+              <a href="#"
+                 class="d-inline-block py-2 px-4 radius-4 bg-n0 shadow-2 hover-bg-primary hover-text-n0 border hover-n20-border">
+                #Walking
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                 class="d-inline-block py-2 px-4 radius-4 bg-n0 shadow-2 hover-bg-primary hover-text-n0 border hover-n20-border">
+                #Training
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                 class="d-inline-block py-2 px-4 radius-4 bg-n0 shadow-2 hover-bg-primary hover-text-n0 border hover-n20-border">
+                #Puppy
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                 class="d-inline-block py-2 px-4 radius-4 bg-n0 shadow-2 hover-bg-primary hover-text-n0 border hover-n20-border">
+                #PetHealth
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                 class="d-inline-block py-2 px-4 radius-4 bg-n0 shadow-2 hover-bg-primary hover-text-n0 border hover-n20-border">
+                #Wellness
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                 class="d-inline-block py-2 px-4 radius-4 bg-n0 shadow-2 hover-bg-primary hover-text-n0 border hover-n20-border">
+                #Care
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                 class="d-inline-block py-2 px-4 radius-4 bg-n0 shadow-2 hover-bg-primary hover-text-n0 border hover-n20-border">
+                #Fitness
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                 class="d-inline-block py-2 px-4 radius-4 bg-n0 shadow-2 hover-bg-primary hover-text-n0 border hover-n20-border">
+                #Healthy
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- tag list end -->
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- service details section end -->

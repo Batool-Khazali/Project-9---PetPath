@@ -1,0 +1,115 @@
+<div class="container mt-4" style="max-width: 700px;">
+  <h2 class="text-center mb-4">Add Animal</h2>
+
+  <!-- Animal form inside a bold, shadowed card -->
+  <div class="p-xxl-15 p-lg-10 p-md-8 p-6 bg-n0 radius-20 border n20-1-border bold-card">
+    <form #addAnimalForm="ngForm" (ngSubmit)="addAnimal(addAnimalForm.value)" class="d-grid gap-lg-6 gap-md-5 gap-4">
+
+      <!-- Animal Name Field -->
+      <div class="d-grid gap-2">
+        <label for="Name" class="text-n20 fw-normal font-instrument">Animal Name <span class="text-primary">*</span></label>
+        <input type="text" id="Name" name="Name" ngModel placeholder="Animal Name" required
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary w-100">
+      </div>
+
+      <!-- Species Field -->
+      <div class="d-grid gap-2">
+        <label for="Species" class="text-n20 fw-normal font-instrument">Species <span class="text-primary">*</span></label>
+        <input type="text" id="Species" name="Species" ngModel placeholder="Species" required
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary w-100">
+      </div>
+
+      <!-- Breed Field -->
+      <div class="d-grid gap-2">
+        <label for="Breed" class="text-n20 fw-normal font-instrument">Breed <span class="text-primary">*</span></label>
+        <input type="text" id="Breed" name="Breed" ngModel placeholder="Breed" required
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary w-100">
+      </div>
+
+      <!-- Age Field -->
+      <div class="d-grid gap-2">
+        <label for="Age" class="text-n20 fw-normal font-instrument">Age <span class="text-primary">*</span></label>
+        <input type="number" id="Age" name="Age" ngModel placeholder="Age" required
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary w-100">
+      </div>
+
+      <!-- Size Field -->
+      <div class="d-grid gap-2">
+        <label for="Size" class="text-n20 fw-normal font-instrument">Size <span class="text-primary">*</span></label>
+        <input type="text" id="Size" name="Size" ngModel placeholder="Size" required
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary w-100">
+      </div>
+
+      <!-- Temperament Field -->
+      <div class="d-grid gap-2">
+        <label for="Temperament" class="text-n20 fw-normal font-instrument">Temperament <span class="text-primary">*</span></label>
+        <input type="text" id="Temperament" name="Temperament" ngModel placeholder="Temperament" required
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary w-100">
+      </div>
+
+      <!-- Special Needs Field -->
+      <div class="d-grid gap-2">
+        <label for="SpecialNeeds" class="text-n20 fw-normal font-instrument">Special Needs</label>
+        <input type="text" id="SpecialNeeds" name="SpecialNeeds" ngModel placeholder="Special Needs"
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary w-100">
+      </div>
+
+      <!-- Description Field -->
+      <div class="d-grid gap-2">
+        <label for="Description" class="text-n20 fw-normal font-instrument">Description</label>
+        <textarea id="Description" name="Description" ngModel placeholder="Description" rows="3"
+                  class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-8 focus-primary w-100"></textarea>
+      </div>
+
+      <!-- Image Uploads -->
+      <div class="d-grid gap-2">
+        <label for="Image1" class="text-n20 fw-normal font-instrument">Image 1 <span class="text-primary">*</span></label>
+        <input name="Image1" type="file" id="Image1" (change)="changeImage($event, 0)" accept="image/*" required
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary w-100">
+      </div>
+      <div class="d-grid gap-2">
+        <label for="Image2" class="text-n20 fw-normal font-instrument">Image 2</label>
+        <input name="Image2" type="file" id="Image2" (change)="changeImage($event, 1)" accept="image/*"
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary w-100">
+      </div>
+      <div class="d-grid gap-2">
+        <label for="Image3" class="text-n20 fw-normal font-instrument">Image 3</label>
+        <input type="file" id="Image3" (change)="changeImage($event, 2)" accept="image/*"
+               class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary w-100">
+      </div>
+
+      <!-- Shelter Field -->
+      <div class="d-grid gap-2">
+        <label for="Shelter" class="text-n20 fw-normal font-instrument">Shelter <span class="text-primary">*</span></label>
+        <select id="Shelter" name="ShelterId" ngModel required
+                class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary w-100">
+          <option *ngFor="let shelter of shelters" [value]="shelter.shelterId">{{ shelter.shelterName }}</option>
+        </select>
+      </div>
+
+      <!-- Category Field -->
+      <div class="d-grid gap-2">
+        <label for="Category" class="text-n20 fw-normal font-instrument">Category <span class="text-primary">*</span></label>
+        <select id="Category" name="CategoryId" ngModel required
+                class="px-lg-6 px-md-4 px-3 py-lg-4 py-md-3 py-2 w-100 border n20-1-border radius-pill focus-primary w-100">
+          <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.name }}</option>
+        </select>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="w-100 btn-primary mt-lg-6">Add Animal</button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .bold-card {
+    border: 2px solid #333; /* Darker and thicker border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    background-color: #ffffff; /* Ensure a white background */
+  }
+
+  .no-border {
+    border: none; /* Remove border for the select field */
+  }
+</style>
